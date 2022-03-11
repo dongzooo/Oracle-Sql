@@ -177,7 +177,6 @@ RTRIM('org문자', '삭제할 문자') : org 문자에 오른쪽에 있는 삭제할 문자 삭제.
 
 REPLACE('org', 'old', 'new') : org문자열안에 old 부분을 new로 교체 
 INSTR('문자', '특정문자') : 문자안의 특정문자의 위치 알려줌. 위치 ~ 'abcd', 'a' --> 1
-
 */
 
 select *from emp;
@@ -304,9 +303,13 @@ select to_char(12345, '99,999') from dual;
             단, 모든 앞자리는 3자리로 간주. 
     문제 2-7 : Student 테이블에서, 제공된 이미지(2-7)와 같이 1전공이 101번인 학과 학생들의 
             이름과 전화번호와 전화번호에서 뒷자리를 *로 표시해서 출력하세요. 
+    문제 2-8 : Student 테이블의 birthday 컬럼을 사용하여 생일이 1월인 학생의 
+            학생번호(studno)와 이름, birthday를 제공된 이미지(2-8) 과 같이 출력하세요. 
+    문제 2-9 : emp 테이블의 hiredate 컬럼을 사용하여 입사일이 1,2,3월인 사람들의 
+            사원번호(empno), 이름(ename), 입사일을 제공된 이미지(2-9)와 같이 출력하세요.
 */
--------------------------------------------------------------------------------------
---2-4 : REPLACE('org', 'old', 'new') : org문자열안에 old 부분을 new로 교체 SUBSTR('문자', idx1, 개수)
+
+--2-4 
 select ename , replace(ename, substr(ename,2,2),'**') "REPLACE" from emp where deptno= 20;
 
 --2-5
@@ -314,21 +317,63 @@ SELECT NAME, JUMIN, REPLACE(JUMIN, SUBSTR(JUMIN,7,7),'-/-/-/-') "REPLACE" FROM S
 
 --2-6
 SELECT * FROM STUDENT;
-SELECT NAME, TEL, REPLACE(TEL, SUBSTR(TEL,4,3),'***'  ) FROM STUDENT WHERE DEPTNO1 = 102;
+SELECT NAME, TEL, REPLACE(TEL, SUBSTR(TEL,5,3),'***'  ) FROM STUDENT WHERE DEPTNO1 = 102;
 
 --2-7
 SELECT NAME, TEL, REPLACE(TEL, SUBSTR(TEL,-4,4),'****'  ) FROM STUDENT WHERE DEPTNO1 = 101;
 
-/*
-문제 2-8 : Student 테이블의 birthday 컬럼을 사용하여 생일이 1월인 학생의 
-            학생번호(studno)와 이름, birthday를 제공된 이미지(2-8) 과 같이 출력하세요. 
-    문제 2-9 : emp 테이블의 hiredate 컬럼을 사용하여 입사일이 1,2,3월인 사람들의 
-            사원번호(empno), 이름(ename), 입사일을 제공된 이미지(2-9)와 같이 출력하세요.
-*/
 --2-8
 SELECT BIRTHDAY FROM STUDENT;
 SELECT STUDNO, NAME, TO_CHAR(BIRTHDAY, 'yyyy-mm-dd HH24:MI:SS')"BIRTHDAY" FROM STUDENT WHERE TO_CHAR(BIRTHDAY, 'mm')= 01 ;
---select sysdate, to_char(BIRTHDAY, 'yyyy-mm-dd HH24:MI:SS') from dual;
 
 --2-9
 SELECT EMPNO,ENAME, TO_CHAR(HIREDATE, 'yyyy-mm-dd HH24:MI:SS') "HIREDATE" FROM EMP WHERE TO_CHAR(HIREDATE,'MM')<'03';
+
+SELECT EMPNO,ENAME, TO_CHAR(HIREDATE, 'yyyy-mm-dd HH24:MI:SS') "HIREDATE" FROM EMP WHERE TO_CHAR(HIREDATE,'MM') in (01, 02,03);
+
+-- emp테이블을 조회하여 이름이 'ALLEN'인 사원의 사번과 이름과 연봉을 출력, 천단위 구분
+SELECT EMPNO, ENAME, TO_CHAR ((SAL*12) + COMM ,'999,999') "SALARY" FROM EMP WHERE ENAME = 'ALLEN';
+
+-- PROFESSOR 테이블을 조회, 201부서 교수들의 이름, 급여, 보너스, 연봉(PAY*12)+BONUS 출력
+SELECT NAME, PAY,  NVL(BONUS, 0), (PAY*12) + NVL(BONUS, 0) "SALARY" FROM PROFESSOR WHERE DEPTNO =201;
+SELECT NAME, PAY, BONUS, (PAY*12) +BONUS "SALARY" FROM PROFESSOR WHERE DEPTNO =201 AND BONUS IS NOT NULL;
+
+--EMP 테이블을 조회 COMM값을 가지고 있는 사람들의 EMPNO, ENAME, HIREDATE, 총연봉, 15%인상된 연봉을 출력
+-- 단연봉 = (SAL*12)+COMM으로 계산, 연봉의 $추가
+SELECT EMPNO, ENAME, HIREDATE, TO_CHAR( (SAL*12)+COMM ,'999,999'  ) "SALARY",  '$'|| TO_CHAR(  ((SAL*12)+COMM)*1.15 , '999,999')  "INCREASED SALARY" FROM EMP WHERE COMM IS NOT NULL;
+
+
+--to_number ('문자') : 문자 ->숫자
+SELECT TO_NUMBER('1') FROM DUAL;
+
+--TO_DATE 문자 -> 날짜
+SELECT TO_DATE('2022/03/12') FROM DUAL;
+SELECT TO_DATE('2022.03.12') FROM DUAL;
+SELECT TO_DATE('22-03-12') FROM DUAL;
+SELECT TO_DATE('20220312') FROM DUAL;
+
+/*
+4) 일반함수
+    #NVL (컬럼명, DEFAULT) : null값을 만나면 DEFAULT 값으로 치환해서 처리
+    #NVL2 (컬럼1, 컬럼2, 컬럼3) : 컬럼1이 NULL이 아니면 컬럼2, 컬럼1이 NULL이면 컬럼3
+*/
+SELECT ENAME, COMM, NVL(COMM, 0) FROM EMP;
+
+--EMP 테이블이 COMM이 NULL이 아니면 SAL + COMM, COMM이 NULL이면 SAL
+SELECT SAL, COMM, NVL2(COMM, SAL+COMM, SAL) "RESULT" FROM EMP;
+
+/*
+ # DECODE() : IF(삼항연산자)문을 오라클 SQL로 가져온 함수, 오라클에서만 존재한다.
+ # 타입1. DECODE(A, B, '1',NULL) : 마지막 NULL은 생략가능
+ # 타입2. DECODE(A, B, '1', '0') 같으며 1 다르면 0
+ # 타입3. DECODE(A, B, '1', 'C', '0') :  A와 B같으면 1, A와 C같으면 0
+ # 타입4. DECODE(A, B, DECODE(C,D,'1', NULL)) :  A와 B같으면 중첩된 DECODE 실행
+ # 타입5. DECODE(A, B, DECODE(C, D, '1', '2'),3)
+
+*/
+SELECT EMPNO, ENAME, DEPTNO, DECODE(DEPTNO,10, 'NEW YORK') "LOC" FROM EMP;
+SELECT EMPNO, ENAME, DEPTNO, DECODE(DEPTNO,10, 'NEW YORK', 'ETC') "LOC" FROM EMP;
+SELECT EMPNO, ENAME, DEPTNO, DECODE(DEPTNO,10, 'NEW YORK', 20, 'DALLAS') "LOC" FROM EMP;
+SELECT EMPNO, ENAME, DEPTNO, MGR,DECODE(DEPTNO, 20, DECODE(MGR,7566, 'HAHAHA')) "LOC" FROM EMP;
+
+
