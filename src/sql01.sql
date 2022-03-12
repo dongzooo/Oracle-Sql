@@ -1,3 +1,9 @@
+-- 한줄 주석--
+/*
+데이터 조회 : SELECT
+전체조희 : *, 원하는 컬럼만 조회 : 컬럼명, 구분자로 나열
+SELECT [컬럼명 또는 표현식] FROM [테이블명 또는 뷰명];
+*/
 SELECT * FROM EMP;
 
 SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO FROM EMP;
