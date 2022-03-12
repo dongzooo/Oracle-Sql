@@ -1,379 +1,307 @@
--- ÇÑÁÙ ÁÖ¼®--
+SELECT * FROM EMP;
+
+SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO FROM EMP;
+
+--í‘œí˜„ì‹(ë¦¬í„°ëŸ´ ìƒìˆ˜)ì€ ì»¬ëŸ¼ ì´ë¦„ì´ì™¸ì— ì¶œë ¥í•˜ê¸°ë¥¼ ì›í•˜ëŠ” ë‚´ìš©ì„ ìž‘ì„±í•˜ì—¬ ì¶œë ¥ê°€ëŠ¥
+--SELECT ë’¤ ''ë¬¶ì–´ì„œ ì‚¬ìš©
+-- ë°ì´í„°ëŠ” ''ë¬¶ê¸°, ë³„ì¹­(ALIAS)ì€ "" ë¬¶ê¸°
+SELECT NAME, 'GOOD MORNING' "HELLO" FROM PROFESSOR;
+SELECT * FROM DEPT;
+SELECT DNAME, 'IT''S DEPTNO' "TEST", DEPTNO "DEPARTMENT NUMBER" FROM DEPT;
+
+--ì»¬ëŸ¼ë³‘ì¹­ (COLUMN ALIAS) : ì»¬ëŸ¼ëª… ë’¤ì— ""ë¡œ ë¬¶ì–´ì„œ ë³„ì¹­ ë‹¬ ìˆ˜ ìžˆë‹¤. (SELECT ë¬¸ ì‹¤í–‰í• ë•Œë§Œ ì ìš©)
+
+SELECT * FROM EMP;
+SELECT EMPNO "EMPLOYEE NUMBER", ENAME "EMPLOYEE NAME", MGR "MANAGER" FROM EMP;
+
+--ì¤‘ë³µê°’ ì œê±°í•˜ê³  SELECT í•´ì˜¤ê¸°
+--ì£¼ì˜ : 1ê°œ ì»¬ëŸ¼ì•žì— ì ì–´ë„ í‚¤ì›Œë“œë¥¼ ìž‘ì„±í•´ë„ ë‚˜ì—´ëœ ëª¨ë“  ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ì¤‘ë³µ
+SELECT DISTINCT DEPTNO FROM EMP;
+SELECT DISTINCT DEPTNO, ENAME FROM EMP;
+
+-- ì—°ê²°ì—°ì‚°ìž : ||: ì»¬ëŸ¼ ë¶™í˜€ì„œ ì¶œë ¥ê°€ëŠ¥
+SELECT ENAME || ' '|| JOB FROM EMP;
+
+SELECT* FROM STUDENT;
+-- STUDENT í…Œì´ë¸”ì—ì„œ ëª¨ë“  í•™ìƒì˜ ì´ë¦„ê³¼ ID, ì²´ì¤‘ì„ ì•„ëž˜ì™€ ê°™ì€ í˜•íƒœë¡œ ì¶œë ¥
+-- ì˜ˆ) JAMES SEO/S ID : 75TRUE, WEIGHT IS 72KG
+SELECT NAME ||'''S ID : '||ID||', WEIGHT IS '||WEIGHT||'KG' FROM STUDENT;
+
 /*
-µ¥ÀÌÅÍ Á¶È¸ : SELECT
-ÀüÃ¼Á¶Èñ : *, ¿øÇÏ´Â ÄÃ·³¸¸ Á¶È¸ : ÄÃ·³¸í, ±¸ºÐÀÚ·Î ³ª¿­
-SELECT [ÄÃ·³¸í ¶Ç´Â Ç¥Çö½Ä] FROM [Å×ÀÌºí¸í ¶Ç´Â ºä¸í];
+ì›í•˜ëŠ” ì¡°ê±´ë§Œ ê³¨ë¼ë‚´ê¸° : WHEREì ˆ
+SELECT [ì»¬ëŸ¼ëª…ë˜ëŠ” í‘œí˜„ì‹] FROM [í…Œì´ë¸”ëª… ë˜ëŠ” ë·°ëª…] WHERE[ì¡°ê±´];
+ì¡°ê±´ì€ ì¼ë°˜ ì‚°ìˆ˜ì— ì‚¬ìš©ë˜ëŠ” ì¡°ê±´ ì‚¬ìš©
 */
-select * from emp;
+SELECT * FROM EMP; 
+SELECT * FROM EMP WHERE EMPNO =7900;
 
-select empno, ename, job, mgr, hiredate, sal, comm, deptno from emp;
+-- SALì´ 1500ì´ìƒì¸ ì§ì›ì˜ EMPNO, ENAME, JOB ê°€ì ¸ì˜¤ê¸°
+SELECT EMPNO, ENAME JOB, SAL FROM EMP WHERE SAL >= 1500;
 
---Ç¥Çö½Ä(¸®ÅÍ·² »ó¼ö)Àº ÄÃ·³ ÀÌ¸§ÀÌ¿Ü¿¡ Ãâ·ÂÇÏ±â¸¦ ¿øÇÏ´Â ³»¿ëÀ» ÀÛ¼ºÇÏ¿© Ãâ·Â°¡´É
---select µÚ ''¹­¾î¼­ »ç¿ë
--- µ¥ÀÌÅÍ´Â ''¹­±â, º°Äª(alias)Àº "" ¹­±â
-select name, 'good morning' "HELLO" from professor;
-select * from dept;
-select dname, 'it''s deptno' "test", deptno "department Number" from dept;
+--ENAMEì´ SMITHì¸ ì‚¬ëžŒì˜ EMPNO, ENAME, SALë¥¼ EMP í…Œì´ë¸”ì—ì„œ ê°€ì ¸ì˜¤ê¸°
+SELECT EMPNO, ENAME, SAL FROM EMP WHERE ENAME= 'SMITH';
 
---ÄÃ·³º´Äª (Column alias) : ÄÃ·³¸í µÚ¿¡ ""·Î ¹­¾î¼­ º°Äª ´Þ ¼ö ÀÖ´Ù. (select ¹® ½ÇÇàÇÒ¶§¸¸ Àû¿ë)
+--ENAMEì´ FRODì¸ ì‚¬ëžŒì˜ EMPNO, ENAME, HIREDATE- ë¥¼ EMPã…‡ì—ì„œ ê°€ì ¸ã…›ì˜¤ê¸°
+SELECT  EMPNO, ENAME, HIREDATE FROM EMP WHERE ENAME ='FORD';
+-- HIREDATEê°€ 80/12/17ì¸ ì§ì›ì˜ EMPNO, ENAME,JOB, HIREDATE ê°€ì ¸ì˜¤ê¸°
+SELECT EMPNO, ENAME, JOB, HIREDATE FROM EMP 
+--WHERE HIREDATE = '80/12/17';
+WHERE HIREDATE = '80.12.17'; -- ìœ ë‹‰ìŠ¤ ê°œì—´ ì¼-ì›”-ë…„ 17/DEC/80
 
-select * from emp;
-select empno "employee number", ename "employee name", mgr "manager" from emp;
-
---Áßº¹°ª Á¦°ÅÇÏ°í select ÇØ¿À±â
---ÁÖÀÇ : 1°³ ÄÃ·³¾Õ¿¡ Àû¾îµµ Å°¿öµå¸¦ ÀÛ¼ºÇØµµ ³ª¿­µÈ ¸ðµç ÄÃ·³À» ±âÁØÀ¸·Î Áßº¹
-select DISTINCT deptno from emp;
-select DISTINCT deptno, ename from emp;
-
--- ¿¬°á¿¬»êÀÚ : ||: ÄÃ·³ ºÙÇô¼­ Ãâ·Â°¡´É
-SELECT ename || ' '|| job from emp;
-
-SELECT* FROM student;
--- Student Å×ÀÌºí¿¡¼­ ¸ðµç ÇÐ»ýÀÇ ÀÌ¸§°ú ID, Ã¼ÁßÀ» ¾Æ·¡¿Í °°Àº ÇüÅÂ·Î Ãâ·Â
--- ¿¹) James Seo/s ID : 75true, WEIGHT is 72kg
-select name ||'''s ID : '||id||', WEIGHT is '||weight||'kg' from student;
-
-/*
-¿øÇÏ´Â Á¶°Ç¸¸ °ñ¶ó³»±â : WHEREÀý
-SELECT [ÄÃ·³¸í¶Ç´Â Ç¥Çö½Ä] FROM [Å×ÀÌºí¸í ¶Ç´Â ºä¸í] WHERE[Á¶°Ç];
-Á¶°ÇÀº ÀÏ¹Ý »ê¼ö¿¡ »ç¿ëµÇ´Â Á¶°Ç »ç¿ë
-*/
-select * from emp; 
-select * from emp where empno =7900;
-
--- salÀÌ 1500ÀÌ»óÀÎ Á÷¿øÀÇ empno, ename, job °¡Á®¿À±â
-SELECT empno, ename job, sal FROM emp where sal >= 1500;
-
---enameÀÌ SMITHÀÎ »ç¶÷ÀÇ empno, ename, sal¸¦ emp Å×ÀÌºí¿¡¼­ °¡Á®¿À±â
-select empno, ename, sal from emp where ename= 'SMITH';
-
---enameÀÌ FRODÀÎ »ç¶÷ÀÇ empno, ename, hiredate- ¸¦ emp¤·¿¡¼­ °¡Á®¤Ë¿À±â
-select  empno, ename, hiredate from emp where ename ='FORD';
--- hiredate°¡ 80/12/17ÀÎ Á÷¿øÀÇ empno, ename,job, hiredate °¡Á®¿À±â
-select empno, ename, job, hiredate from emp 
---where hiredate = '80/12/17';
-where hiredate = '80.12.17'; -- À¯´Ð½º °³¿­ ÀÏ-¿ù-³â 17/DEC/80
-
---±âº» »ê¼ú ¿¬»êÀÚ »ç¿ë : + - * /
-select ename, sal,sal*0.1 "tax" from emp where deptno =30;
+--ê¸°ë³¸ ì‚°ìˆ  ì—°ì‚°ìž ì‚¬ìš© : + - * /
+SELECT ENAME, SAL,SAL*0.1 "TAX" FROM EMP WHERE DEPTNO =30;
 
 
----ºñ±³¿¬»êÀÚ
-select * from emp;
-select * from emp where ename >='R'; 
-select empno ,ename, deptno from emp where hiredate >= '82/01/01';
+---ë¹„êµì—°ì‚°ìž
+SELECT * FROM EMP;
+SELECT * FROM EMP WHERE ENAME >='R'; 
+SELECT EMPNO ,ENAME, DEPTNO FROM EMP WHERE HIREDATE >= '82/01/01';
 
---¼ýÀÚ between and
-select empno, ename, sal from emp where sal >=2000 and sal <=3000; --¼Óµµ¸é¿¡¼­ ´õ ºü¸§
-select empno, ename , sal from emp where sal between 2000 and 3000;
+--ìˆ«ìž BETWEEN AND
+SELECT EMPNO, ENAME, SAL FROM EMP WHERE SAL >=2000 AND SAL <=3000; --ì†ë„ë©´ì—ì„œ ë” ë¹ ë¦„
+SELECT EMPNO, ENAME , SAL FROM EMP WHERE SAL BETWEEN 2000 AND 3000;
 
---¹®ÀÚ beetween and
-select ename from emp order by ename;
-select ename from emp where ename between 'JAMES' and 'MARTIN';
+--ë¬¸ìž BEETWEEN AND
+SELECT ENAME FROM EMP ORDER BY ENAME;
+SELECT ENAME FROM EMP WHERE ENAME BETWEEN 'JAMES' AND 'MARTIN';
 
---IN ¿¬»êÀÚ
-select empno, ename, deptno from emp 
-where deptno in (10, 20);
+--IN ì—°ì‚°ìž
+SELECT EMPNO, ENAME, DEPTNO FROM EMP 
+WHERE DEPTNO IN (10, 20);
 
---Like ¿¬»êÀÚ : %_ µÎ°³ÀÇ ±âÈ£¿Í °°ÀÌ »ç¿ë 
--- % : ±ÛÀÚ¼ö Á¦ÇÑ ¾ø°í(0°³Æ÷ÇÔ) ¾î¶² ±ÛÀÚ°¡ ¿Íµµ »ó°ü¾øÀ½
---  _: ±ÛÀÚ¼ö´Â ÇÑ±ÛÀÚ ¶æÇÏ¸ç, ¾î¶² ±ÛÀÚÀÌ´ø »ó°ü¾ø´Ù.
--- °ª% °ªÀ¸·Î ½ÃÀÛÇÏ´Â
--- %°ª °ªÀ¸·Î ³¡³ª´Â
--- %°ª% °ªÀ» Æ÷ÇÔÇÏ´Â
--- _°ª : µÎ¹øÂ°°¡ °ªÀÎ °Í
--- ¼ýÀÚ
-select empno, ename , sal from emp where sal like '1%';
+--LIKE ì—°ì‚°ìž : %_ ë‘ê°œì˜ ê¸°í˜¸ì™€ ê°™ì´ ì‚¬ìš© 
+-- % : ê¸€ìžìˆ˜ ì œí•œ ì—†ê³ (0ê°œí¬í•¨) ì–´ë–¤ ê¸€ìžê°€ ì™€ë„ ìƒê´€ì—†ìŒ
+--  _: ê¸€ìžìˆ˜ëŠ” í•œê¸€ìž ëœ»í•˜ë©°, ì–´ë–¤ ê¸€ìžì´ë˜ ìƒê´€ì—†ë‹¤.
+-- ê°’% ê°’ìœ¼ë¡œ ì‹œìž‘í•˜ëŠ”
+-- %ê°’ ê°’ìœ¼ë¡œ ëë‚˜ëŠ”
+-- %ê°’% ê°’ì„ í¬í•¨í•˜ëŠ”
+-- _ê°’ : ë‘ë²ˆì§¸ê°€ ê°’ì¸ ê²ƒ
+-- ìˆ«ìž
+SELECT EMPNO, ENAME , SAL FROM EMP WHERE SAL LIKE '1%';
 
-select empno ,ename , sal from emp where ename like 'A%';
+SELECT EMPNO ,ENAME , SAL FROM EMP WHERE ENAME LIKE 'A%';
 
-select empno ,ename , hiredate from emp where hiredate like '80%';
+SELECT EMPNO ,ENAME , HIREDATE FROM EMP WHERE HIREDATE LIKE '80%';
 
-select empno, ename, hiredate from emp where hiredate like '___12%';
+SELECT EMPNO, ENAME, HIREDATE FROM EMP WHERE HIREDATE LIKE '___12%';
 
-select empno, ename from emp where ename like '%N';
+SELECT EMPNO, ENAME FROM EMP WHERE ENAME LIKE '%N';
 
--- IS NULL / IS NOT NULL : °ªÀÌ ¹«¾ùÀÎÁö ¸ð¸¦°æ¿ì
+-- IS NULL / IS NOT NULL : ê°’ì´ ë¬´ì—‡ì¸ì§€ ëª¨ë¥¼ê²½ìš°
 
-select * from emp;
-select * from emp where comm is null;
-select * from emp where comm is not null;
+SELECT * FROM EMP;
+SELECT * FROM EMP WHERE COMM IS NULL;
+SELECT * FROM EMP WHERE COMM IS NOT NULL;
 
---AND OR : °Ë»ö WHERE Á¶°Ç½Ä¿¡¼­ »ç¿ë
---AND : °Ë»öÁ¶°ÇÀÌ ¸ðµÎ ¸¸Á·ÇÒ ¶§
---OR : Á¶°Ç Áß ÇÏ³ª¶óµµ ¸¸Á·ÇÒ ¶§
+--AND OR : ê²€ìƒ‰ WHERE ì¡°ê±´ì‹ì—ì„œ ì‚¬ìš©
+--AND : ê²€ìƒ‰ì¡°ê±´ì´ ëª¨ë‘ ë§Œì¡±í•  ë•Œ
+--OR : ì¡°ê±´ ì¤‘ í•˜ë‚˜ë¼ë„ ë§Œì¡±í•  ë•Œ
 
-select empno, ename, hiredate , sal from emp where hiredate >= '82/01/01' and sal >=2000;
+SELECT EMPNO, ENAME, HIREDATE , SAL FROM EMP WHERE HIREDATE >= '82/01/01' AND SAL >=2000;
 
-select empno, ename, hiredate , sal from emp where hiredate >= '82/01/01' or sal >=2000;
---sal 1000ÀÌ»óÀÌ¸ç, comm < 1000ÀÌÇÏ ¶Ç´Â ¾ø´Â »ç¶÷µé
-select * from emp
-where sal >= 1000 and comm < 1000 or comm is null;
+SELECT EMPNO, ENAME, HIREDATE , SAL FROM EMP WHERE HIREDATE >= '82/01/01' OR SAL >=2000;
+--SAL 1000ì´ìƒì´ë©°, COMM < 1000ì´í•˜ ë˜ëŠ” ì—†ëŠ” ì‚¬ëžŒë“¤
+SELECT * FROM EMP
+WHERE SAL >= 1000 AND COMM < 1000 OR COMM IS NULL;
 
--- Á¤·Ä : order by
--- ¿À¸§Â÷¼ø : ASC (default)
--- ³»¸²Â÷¼ø : DESC
---SQL¸¶Áö¸·¿¡ Àû¾î¾ß ÇÔ
+-- ì •ë ¬ : ORDER BY
+-- ì˜¤ë¦„ì°¨ìˆœ : ASC (DEFAULT)
+-- ë‚´ë¦¼ì°¨ìˆœ : DESC
+--SQLë§ˆì§€ë§‰ì— ì ì–´ì•¼ í•¨
 
-select * from emp ORDER BY ename asc;
-select * from emp ORDER BY ename desc;
+SELECT * FROM EMP ORDER BY ENAME ASC;
+SELECT * FROM EMP ORDER BY ENAME DESC;
 
---sal >1500, ÀÌ¸§±âÁØ ¿À¸§Â÷¼ø
-select * from emp where sal >= 1500 order by ename;
+--SAL >1500, ì´ë¦„ê¸°ì¤€ ì˜¤ë¦„ì°¨ìˆœ
+SELECT * FROM EMP WHERE SAL >= 1500 ORDER BY ENAME;
 
-select * from emp order by deptno asc, sal desc;
-select empno , ename , sal, deptno from emp order by 4,3;
+SELECT * FROM EMP ORDER BY DEPTNO ASC, SAL DESC;
+SELECT EMPNO , ENAME , SAL, DEPTNO FROM EMP ORDER BY 4,3;
 
---ÁýÇÕ¿¬»êÀÚ
--- UNION ÇÕÁýÇÕ : µÎÁýÇÕÀÇ °á°ú ÇÕÃÄ, Áßº¹°ª Á¦°ÅÇÏ°í Á¤·Ä
--- UNION ALL : ÇÕÁýÇÕ+ : µÎÁýÇÕÀÇ °á°ú ÇÕÃÄ, Áßº¹Á¦°Å¾ÈÇÏ°í Á¤·Ä ¾ÈÇÔ
--- INTERSECT : ±³ÁýÇÕ : µÎÁýÇÕÀÇ Áßº¹µÇ´Â °ª¸¸ °¡Á®¿È Á¤·Ä
--- MINUS : Â÷ÁýÇÕ : µÎÁýÇÕÀÇ Â÷ÁýÇÕÀÇ °á°ú¸¦ °¡Á®¿È, Á¤·Ä. (ÁýÇÕÀÛ¼º ¼ø¼­ Áß¿ä)
--- ÁÖÀÇ»çÇ× : µÎ ÁýÇÕÀÇ select Àý¿¡ ¿À´Â ÄÃ·³¼ö°¡ µ¿ÀÏÇØ¿©ÇÔ
--- µÎÁýÇÕÀÇ select Àý¿¡ ¿À´Â ÄÃ·³ÀÇ µ¥ÀÌÅÍ Å¸ÀÔÀÌ µ¿ÀÏÇØ¾ßÇÔ
+--ì§‘í•©ì—°ì‚°ìž
+-- UNION í•©ì§‘í•© : ë‘ì§‘í•©ì˜ ê²°ê³¼ í•©ì³, ì¤‘ë³µê°’ ì œê±°í•˜ê³  ì •ë ¬
+-- UNION ALL : í•©ì§‘í•©+ : ë‘ì§‘í•©ì˜ ê²°ê³¼ í•©ì³, ì¤‘ë³µì œê±°ì•ˆí•˜ê³  ì •ë ¬ ì•ˆí•¨
+-- INTERSECT : êµì§‘í•© : ë‘ì§‘í•©ì˜ ì¤‘ë³µë˜ëŠ” ê°’ë§Œ ê°€ì ¸ì˜´ ì •ë ¬
+-- MINUS : ì°¨ì§‘í•© : ë‘ì§‘í•©ì˜ ì°¨ì§‘í•©ì˜ ê²°ê³¼ë¥¼ ê°€ì ¸ì˜´, ì •ë ¬. (ì§‘í•©ìž‘ì„± ìˆœì„œ ì¤‘ìš”)
+-- ì£¼ì˜ì‚¬í•­ : ë‘ ì§‘í•©ì˜ SELECT ì ˆì— ì˜¤ëŠ” ì»¬ëŸ¼ìˆ˜ê°€ ë™ì¼í•´ì—¬í•¨
+-- ë‘ì§‘í•©ì˜ SELECT ì ˆì— ì˜¤ëŠ” ì»¬ëŸ¼ì˜ ë°ì´í„° íƒ€ìž…ì´ ë™ì¼í•´ì•¼í•¨
 
-select * from student;
---Student : STUDNO NAME ID GRADE JUMIN BIRTHDAY TEL HEIGHT WEIGHT DEPTNO1 DEPTNO2 PROFNO
---Professor : PROFNO NAME ID POSITION PAY HIREDATE BONUS DEPTNO EMAIL HPAGE
-select * from professor;
--- ÇÕÁýÇÕ
-select studno, name , DEPTNO1,1 from student where DEPTNO1= 101
-union all
-select profno , name , deptno , 2 from professor where deptno =101;
+SELECT * FROM STUDENT;
+--STUDENT : STUDNO NAME ID GRADE JUMIN BIRTHDAY TEL HEIGHT WEIGHT DEPTNO1 DEPTNO2 PROFNO
+--PROFESSOR : PROFNO NAME ID POSITION PAY HIREDATE BONUS DEPTNO EMAIL HPAGE
+SELECT * FROM PROFESSOR;
+-- í•©ì§‘í•©
+SELECT STUDNO, NAME , DEPTNO1,1 FROM STUDENT WHERE DEPTNO1= 101
+UNION ALL
+SELECT PROFNO , NAME , DEPTNO , 2 FROM PROFESSOR WHERE DEPTNO =101;
 
---Áßº¹ºñ±³
-select STUDNO, name ,deptno1, deptno2 from student where deptno1 = 101
-union all
-select STUDNO, name, deptno1, deptno2 from student where deptno1 = 201;
+--ì¤‘ë³µë¹„êµ
+SELECT STUDNO, NAME ,DEPTNO1, DEPTNO2 FROM STUDENT WHERE DEPTNO1 = 101
+UNION ALL
+SELECT STUDNO, NAME, DEPTNO1, DEPTNO2 FROM STUDENT WHERE DEPTNO1 = 201;
 
--- intersect : ±³ÁýÇÕ 
-select studno, name from student where deptno1 = 101
-intersect
-select studno, name from student where deptno2 = 201;
+-- INTERSECT : êµì§‘í•© 
+SELECT STUDNO, NAME FROM STUDENT WHERE DEPTNO1 = 101
+INTERSECT
+SELECT STUDNO, NAME FROM STUDENT WHERE DEPTNO2 = 201;
 
--- minus Â÷ÁýÇÕ
-select empno, ename, sal from emp 
-minus
-select empno, ename , sal from emp where sal >2500;
+-- MINUS ì°¨ì§‘í•©
+SELECT EMPNO, ENAME, SAL FROM EMP 
+MINUS
+SELECT EMPNO, ENAME , SAL FROM EMP WHERE SAL >2500;
 
 
 /*
-##SQL ÇÔ¼ö
-´ÜÀÏÇà ÇÔ¼ö : ÇÑ ¹ø¿¡ ÇÑ°³ÀÇ Çà¿¡ ´ëÇÑ Ã³¸®¸¦ ÇÑ¹ø ÇØÁÖ´Â ÇÔ¼ö : ÇÑ°³Çà -> ÇÑ°³ÀÇ °á°ú
-º¹¼öÇà ÇÔ¼ö : ÇÑ ¹ø¿¡ ¿©·¯°³ÀÇ Çà¿¡ ´ëÇÑ Ã³¸®¸¦ ÇÑ¹ø ÇØÁÖ´Â ÇÔ¼ö : ¿©·¯°³Çà -> ÇÑ°³ÀÇ °á°ú
-
-1) ´ÜÀÏÇà ÇÔ¼ö : ¹®ÀÚÇÔ¼ö, ¼ýÀÚÇÔ¼ö, ³¯Â¥ÇÔ¼ö, ÀÏ¹ÝÇÔ¼ö, º¯È¯ÇÔ¼ö
-#1. ¹®ÀÚÇÔ¼ö
-LOWER('¹®ÀÚ') : ¼Ò¹®ÀÚ·Î º¯È¯
-UPPER('¹®ÀÚ') : eo¹®ÀÚ·Î º¯È¯
-LENGTH('¹®ÀÚ') : ¹®ÀÚ ±æÀÌ Ãâ·Â
-CONCAT('¹®ÀÚ', '¹®ÀÚ') : ¹®ÀÚ¿­ ¿¬°á
-SUBSTR('¹®ÀÚ', idx1, °³¼ö) : ¹®ÀÚ¸¦ idx1~idx2(Æ÷ÇÔ) Àß¶ó¼­ ÁÜ. index´Â 1ºÎÅÍ ½ÃÀÛ
-LPAD('original¹®ÀÚ', length, '»ðÀÔ¹®ÀÚ') : original¿¡ ¿ÞÂÊºÎºÐ¿¡ length ±æÀÌ°¡ µÉ ¶§ ±îÁö »ðÀÔ¹®ÀÚ¸¦ Ãß°¡ÇØÁÜ
-        'love',6,'*' ->**love
-RPAD('original¹®ÀÚ', length, '»ðÀÔ¹®ÀÚ') : original¿¡ ¿À¸¥ÂÊ ºÎºÐ¿¡ »ðÀÔ¹®ÀÚ¸¦ Ãß°¡
-LTRIM('org¹®ÀÚ', '»èÁ¦ÇÒ ¹®ÀÚ') : org ¹®ÀÚ¿¡ ¿ÞÂÊ¿¡ ÀÖ´Â »èÁ¦ÇÒ ¹®ÀÚ »èÁ¦. '*love','*' -> love
-RTRIM('org¹®ÀÚ', '»èÁ¦ÇÒ ¹®ÀÚ') : org ¹®ÀÚ¿¡ ¿À¸¥ÂÊ¿¡ ÀÖ´Â »èÁ¦ÇÒ ¹®ÀÚ »èÁ¦.
-
-REPLACE('org', 'old', 'new') : org¹®ÀÚ¿­¾È¿¡ old ºÎºÐÀ» new·Î ±³Ã¼ 
-INSTR('¹®ÀÚ', 'Æ¯Á¤¹®ÀÚ') : ¹®ÀÚ¾ÈÀÇ Æ¯Á¤¹®ÀÚÀÇ À§Ä¡ ¾Ë·ÁÁÜ. À§Ä¡ ~ 'abcd', 'a' --> 1
+##SQL í•¨ìˆ˜
+ë‹¨ì¼í–‰ í•¨ìˆ˜ : í•œ ë²ˆì— í•œê°œì˜ í–‰ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ í•œë²ˆ í•´ì£¼ëŠ” í•¨ìˆ˜ : í•œê°œí–‰ -> í•œê°œì˜ ê²°ê³¼
+ë³µìˆ˜í–‰ í•¨ìˆ˜ : í•œ ë²ˆì— ì—¬ëŸ¬ê°œì˜ í–‰ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ í•œë²ˆ í•´ì£¼ëŠ” í•¨ìˆ˜ : ì—¬ëŸ¬ê°œí–‰ -> í•œê°œì˜ ê²°ê³¼
+1) ë‹¨ì¼í–‰ í•¨ìˆ˜ : ë¬¸ìží•¨ìˆ˜, ìˆ«ìží•¨ìˆ˜, ë‚ ì§œí•¨ìˆ˜, ì¼ë°˜í•¨ìˆ˜, ë³€í™˜í•¨ìˆ˜
+#1. ë¬¸ìží•¨ìˆ˜
+LOWER('ë¬¸ìž') : ì†Œë¬¸ìžë¡œ ë³€í™˜
+UPPER('ë¬¸ìž') : EOë¬¸ìžë¡œ ë³€í™˜
+LENGTH('ë¬¸ìž') : ë¬¸ìž ê¸¸ì´ ì¶œë ¥
+CONCAT('ë¬¸ìž', 'ë¬¸ìž') : ë¬¸ìžì—´ ì—°ê²°
+SUBSTR('ë¬¸ìž', IDX1, ê°œìˆ˜) : ë¬¸ìžë¥¼ IDX1~IDX2(í¬í•¨) ìž˜ë¼ì„œ ì¤Œ. INDEXëŠ” 1ë¶€í„° ì‹œìž‘
+LPAD('ORIGINALë¬¸ìž', LENGTH, 'ì‚½ìž…ë¬¸ìž') : ORIGINALì— ì™¼ìª½ë¶€ë¶„ì— LENGTH ê¸¸ì´ê°€ ë  ë•Œ ê¹Œì§€ ì‚½ìž…ë¬¸ìžë¥¼ ì¶”ê°€í•´ì¤Œ
+        'LOVE',6,'*' ->**LOVE
+RPAD('ORIGINALë¬¸ìž', LENGTH, 'ì‚½ìž…ë¬¸ìž') : ORIGINALì— ì˜¤ë¥¸ìª½ ë¶€ë¶„ì— ì‚½ìž…ë¬¸ìžë¥¼ ì¶”ê°€
+LTRIM('ORGë¬¸ìž', 'ì‚­ì œí•  ë¬¸ìž') : ORG ë¬¸ìžì— ì™¼ìª½ì— ìžˆëŠ” ì‚­ì œí•  ë¬¸ìž ì‚­ì œ. '*LOVE','*' -> LOVE
+RTRIM('ORGë¬¸ìž', 'ì‚­ì œí•  ë¬¸ìž') : ORG ë¬¸ìžì— ì˜¤ë¥¸ìª½ì— ìžˆëŠ” ì‚­ì œí•  ë¬¸ìž ì‚­ì œ.
+REPLACE('ORG', 'OLD', 'NEW') : ORGë¬¸ìžì—´ì•ˆì— OLD ë¶€ë¶„ì„ NEWë¡œ êµì²´ 
+INSTR('ë¬¸ìž', 'íŠ¹ì •ë¬¸ìž') : ë¬¸ìžì•ˆì˜ íŠ¹ì •ë¬¸ìžì˜ ìœ„ì¹˜ ì•Œë ¤ì¤Œ. ìœ„ì¹˜ ~ 'ABCD', 'A' --> 1
 */
 
-select *from emp;
-select ename, LOWER(ename) from emp;
-select ename , length(ename) from emp;
-select ename, job, concat(ename, job) from emp;
-select substr('abcd',1,2) from dual;
-select substr('abcd',-3,2) from dual;
+SELECT *FROM EMP;
+SELECT ENAME, LOWER(ENAME) FROM EMP;
+SELECT ENAME , LENGTH(ENAME) FROM EMP;
+SELECT ENAME, JOB, CONCAT(ENAME, JOB) FROM EMP;
+SELECT SUBSTR('ABCD',1,2) FROM DUAL;
+SELECT SUBSTR('ABCD',-3,2) FROM DUAL;
 
-select * from student;
-select name, jumin, substr(jumin, 1,6) from student ;
+SELECT * FROM STUDENT;
+SELECT NAME, JUMIN, SUBSTR(JUMIN, 1,6) FROM STUDENT ;
 
-select name ,deptno1, jumin, substr(jumin,3,4) "bithday", LPAD(substr(jumin,3,4)-1,4,'0' ) "D-1" from student where deptno1 = 101;
+SELECT NAME ,DEPTNO1, JUMIN, SUBSTR(JUMIN,3,4) "BITHDAY", LPAD(SUBSTR(JUMIN,3,4)-1,4,'0' ) "D-1" FROM STUDENT WHERE DEPTNO1 = 101;
 
--- emp Å×ÀÌºí¿¡¼­ ename ÀÌ¸§ÀÌ Ã¹ µÎ±ÛÀÚ¸¦ *·Î Ç¥½ÃÇÏ±â
-select * from emp;
-select ename, replace(ename, substr(ename, 1, 2), '**') from emp;
-select 'ÇÇÄ«Ãò' "org", substr('ÇÇÄ«Ãò',1,2) from dual;
+-- EMP í…Œì´ë¸”ì—ì„œ ENAME ì´ë¦„ì´ ì²« ë‘ê¸€ìžë¥¼ *ë¡œ í‘œì‹œí•˜ê¸°
+SELECT * FROM EMP;
+SELECT ENAME, REPLACE(ENAME, SUBSTR(ENAME, 1, 2), '**') FROM EMP;
+SELECT 'í”¼ì¹´ì¸„' "ORG", SUBSTR('í”¼ì¹´ì¸„',1,2) FROM DUAL;
 
--- ÇÇ**  
-select 'ÇÇÄ«Ãò' "org", replace('ÇÇÄ«Ãò',substr('ÇÇÄ«Ãò',2, length('ÇÇÄ«Ãò'))  , '**') "lpad" from dual;
+-- í”¼**  
+SELECT 'í”¼ì¹´ì¸„' "ORG", REPLACE('í”¼ì¹´ì¸„',SUBSTR('í”¼ì¹´ì¸„',2, LENGTH('í”¼ì¹´ì¸„'))  , '**') "LPAD" FROM DUAL;
 
 
 /*
- ¼ýÀÚ ÇÔ¼ö : ÀÔ·ÂµÇ´Â °ªÀÌ ¼ýÀÚÀÎ ÇÔ¼öµéÀ» ¸»ÇÔ
-ROUND(¼ýÀÚ, ¼Ò¼öÁ¡¼ö) : ¹Ý¿Ã¸² : 12.345 , 2 --> 12.35
-TRUNC(¼ýÀÚ, ¼Ò¼öÁ¡¼ö) : ¼ýÀÚ¿¡¼­ ÁÖ¾îÁø ¼Ò¼öÁ¡¼ö¸¸Å­ ÀÚ¸® À¯ÁöÇÏ°í µÚ´Â ¹ö¸² 12.345, 2->13.34
-MOD(¼ýÀÚ1, ¼ýÀÚ2) : ¼ýÀÚ1À» ¼ýÀÚ2·Î ³ª´« ³ª¸ÓÁö°ª (ÀÚ¹ÙÀÇ %) 12,10 ->2
-CEIL(¼ýÀÚ) : ¿Ã¸²
-FLOOR(¼ýÀÚ) : ³»¸²
-POWER(¼ýÀÚ1, ¼ýÀÚ2) : ¼ýÀÚ1ÀÇ ¼ýÀÚ2½Â 3,2 -> 9
+ ìˆ«ìž í•¨ìˆ˜ : ìž…ë ¥ë˜ëŠ” ê°’ì´ ìˆ«ìžì¸ í•¨ìˆ˜ë“¤ì„ ë§í•¨
+ROUND(ìˆ«ìž, ì†Œìˆ˜ì ìˆ˜) : ë°˜ì˜¬ë¦¼ : 12.345 , 2 --> 12.35
+TRUNC(ìˆ«ìž, ì†Œìˆ˜ì ìˆ˜) : ìˆ«ìžì—ì„œ ì£¼ì–´ì§„ ì†Œìˆ˜ì ìˆ˜ë§Œí¼ ìžë¦¬ ìœ ì§€í•˜ê³  ë’¤ëŠ” ë²„ë¦¼ 12.345, 2->13.34
+MOD(ìˆ«ìž1, ìˆ«ìž2) : ìˆ«ìž1ì„ ìˆ«ìž2ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ê°’ (ìžë°”ì˜ %) 12,10 ->2
+CEIL(ìˆ«ìž) : ì˜¬ë¦¼
+FLOOR(ìˆ«ìž) : ë‚´ë¦¼
+POWER(ìˆ«ìž1, ìˆ«ìž2) : ìˆ«ìž1ì˜ ìˆ«ìž2ìŠ¹ 3,2 -> 9
 */
-select round(12.545 , 2) from dual;
-select trunc(12.345 , 2) from dual;
+SELECT ROUND(12.545 , 2) FROM DUAL;
+SELECT TRUNC(12.345 , 2) FROM DUAL;
 
 /*
-3) ³¯Â¥ °ü·Ã ÇÔ¼ö
-    #³¯Â¥ °è»ê
-    ³¯Â¥ + ¼ýÀÚ = ³¯Â¥ 3¿ù 8ÀÏ +3 = 3¿ù 11ÀÏ
-    ³¯Â¥ - ¼ýÀÚ = ³¯Â¥
-    ³¯Â¥ - ³¯Â¥ = ¼ýÀÚ ex) 3¿ù 8ÀÏ -3¿ù5ÀÏ  = -3
+3) ë‚ ì§œ ê´€ë ¨ í•¨ìˆ˜
+    #ë‚ ì§œ ê³„ì‚°
+    ë‚ ì§œ + ìˆ«ìž = ë‚ ì§œ 3ì›” 8ì¼ +3 = 3ì›” 11ì¼
+    ë‚ ì§œ - ìˆ«ìž = ë‚ ì§œ
+    ë‚ ì§œ - ë‚ ì§œ = ìˆ«ìž EX) 3ì›” 8ì¼ -3ì›”5ì¼  = -3
     
-    #³¯Â¥ÇÔ¼ö
-    SYSDATE : ½Ã½ºÅÛÀÇ ÇöÀç ³¯Â¥¿Í ½Ã°£
-    MONTHS_BETWEEN : µÎ ³¯Â¥ »çÀÌÀÇ °³¿ù¼ö
-    ADD_MONTHS : ÁÖ¾îÁø ³¯Â¥¿¡ °³¿ù¼ö ´õÇÔ
-    NEXT_DAY : µ¹¾Æ¿À´Â ³¯Â¥
-    LAST_DAY : ÇØ´ç ´ÞÀÇ ¸¶Áö¸· ³¯Â¥
-    ROUND : ÁÖ¾îÁø ³¯Â¥ ¹Ý¿Ã¸²
-    TRUNC : ÁÖ¾îÁø ³¯Â¥ ¹ö¸²
+    #ë‚ ì§œí•¨ìˆ˜
+    SYSDATE : ì‹œìŠ¤í…œì˜ í˜„ìž¬ ë‚ ì§œì™€ ì‹œê°„
+    MONTHS_BETWEEN : ë‘ ë‚ ì§œ ì‚¬ì´ì˜ ê°œì›”ìˆ˜
+    ADD_MONTHS : ì£¼ì–´ì§„ ë‚ ì§œì— ê°œì›”ìˆ˜ ë”í•¨
+    NEXT_DAY : ëŒì•„ì˜¤ëŠ” ë‚ ì§œ
+    LAST_DAY : í•´ë‹¹ ë‹¬ì˜ ë§ˆì§€ë§‰ ë‚ ì§œ
+    ROUND : ì£¼ì–´ì§„ ë‚ ì§œ ë°˜ì˜¬ë¦¼
+    TRUNC : ì£¼ì–´ì§„ ë‚ ì§œ ë²„ë¦¼
 */
-select sysdate from dual;
+SELECT SYSDATE FROM DUAL;
 
-select TRUNC(MONTHS_BETWEEN('22/04/29',sysdate),0) from dual;
+SELECT TRUNC(MONTHS_BETWEEN('22/04/29',SYSDATE),0) FROM DUAL;
 
-select add_months(sysdate,1) from dual;
-select next_day(sysdate, '¼ö') from dual;
+SELECT ADD_MONTHS(SYSDATE,1) FROM DUAL;
+SELECT NEXT_DAY(SYSDATE, 'ìˆ˜') FROM DUAL;
 
-select sysdate, round(sysdate), trunc(sysdate) from dual;
+SELECT SYSDATE, ROUND(SYSDATE), TRUNC(SYSDATE) FROM DUAL;
 
 /*
-3) Çüº¯È¯ ÇÔ¼ö
-    #¿À¶óÅ¬ µ¥ÀÌÅÍ Å¸ÀÔ
-    char(n) : n¸¸Å­ÀÇ °íÁ¤±æÀÌ ¹®ÀÚ ÀúÀå. ÃÖ´ë 2000¹ÙÀÌÆ®
-    varchar2(n) : n¸¸Å­ÀÇ º¯ÇÏ´Â ±æÀÌÀÇ ¹®ÀÚ ÀúÀå. ÃÖ´ë 4000¹ÙÀÌÆ®
-    number(p,s) : ¼ýÀÚ ÀúÀå, p ÀüÃ¼ ÀÚ¸®¼ö 1~38, s ¼Ò¼öÁ¡ ÀÚ¸®¼ö - 84~127ÀÚ¸®±îÁö./ ()»ý·«°¡´É
-    date : ³¯Â¥
-    long : °¡º¯±æÀÌ ¹®ÀÚÀúÀå 2GB
-    clob : °¡º¯±æÀÌ ¹®ÀÚÀúÀå 4GB
-    raw(n) : ¿ø½Ã 2Áø µ¥ÀÌÅÍ 200byte
-    long raw(n) : ¿ø½Ã 2Áø µ¥ÀÌÅÍ
-    bfile : ¿ÜºÎÆÄÀÏ¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ·Î ÃÖ´ë 4GbB
+3) í˜•ë³€í™˜ í•¨ìˆ˜
+    #ì˜¤ë¼í´ ë°ì´í„° íƒ€ìž…
+    CHAR(N) : Në§Œí¼ì˜ ê³ ì •ê¸¸ì´ ë¬¸ìž ì €ìž¥. ìµœëŒ€ 2000ë°”ì´íŠ¸
+    VARCHAR2(N) : Në§Œí¼ì˜ ë³€í•˜ëŠ” ê¸¸ì´ì˜ ë¬¸ìž ì €ìž¥. ìµœëŒ€ 4000ë°”ì´íŠ¸
+    NUMBER(P,S) : ìˆ«ìž ì €ìž¥, P ì „ì²´ ìžë¦¬ìˆ˜ 1~38, S ì†Œìˆ˜ì  ìžë¦¬ìˆ˜ - 84~127ìžë¦¬ê¹Œì§€./ ()ìƒëžµê°€ëŠ¥
+    DATE : ë‚ ì§œ
+    LONG : ê°€ë³€ê¸¸ì´ ë¬¸ìžì €ìž¥ 2GB
+    CLOB : ê°€ë³€ê¸¸ì´ ë¬¸ìžì €ìž¥ 4GB
+    RAW(N) : ì›ì‹œ 2ì§„ ë°ì´í„° 200BYTE
+    LONG RAW(N) : ì›ì‹œ 2ì§„ ë°ì´í„°
+    BFILE : ì™¸ë¶€íŒŒì¼ì— ì €ìž¥ëœ ë°ì´í„°ë¡œ ìµœëŒ€ 4GBB
     
-    #ÀÚµ¿ Çüº¯È¯
-        select 2 + '2' from dual;
-    #°­Á¦ Çüº¯È¯
-        ÇÔ¼ö
-        TO_CHAR(¼ýÀÚ) : ¼ýÀÚ -> ¹®ÀÚ, ³¯Â¥ -> ¹®ÀÚ
-        TO_NUMBER('¹®ÀÚ') : ¹®ÀÚ -> ¼ýÀÚ
-        TO_DATE('³¯Â¥Çü¹®ÀÚ') : ¹®ÀÚ -> ³¯Â¥
-        "³¯Â¥ Ç¥ÇöÇÏ´Â ¹æ¹ý"
-            ¿¬µµ : YYYY/YY/YEAR
-            ¿ù : MM / MONTH / MON
-            ÀÏ : DD / DAY / DDTH ¸î¹øÂ° ³¯ÀÎÁö
-            ½Ã°£ : HH24 (24½Ã°£) / HH (12½Ã°£)
-            ºÐ : MI
-            ÃÊ : SS
+    #ìžë™ í˜•ë³€í™˜
+        SELECT 2 + '2' FROM DUAL;
+    #ê°•ì œ í˜•ë³€í™˜
+        í•¨ìˆ˜
+        TO_CHAR(ìˆ«ìž) : ìˆ«ìž -> ë¬¸ìž, ë‚ ì§œ -> ë¬¸ìž
+        TO_NUMBER('ë¬¸ìž') : ë¬¸ìž -> ìˆ«ìž
+        TO_DATE('ë‚ ì§œí˜•ë¬¸ìž') : ë¬¸ìž -> ë‚ ì§œ
+        "ë‚ ì§œ í‘œí˜„í•˜ëŠ” ë°©ë²•"
+            ì—°ë„ : YYYY/YY/YEAR
+            ì›” : MM / MONTH / MON
+            ì¼ : DD / DAY / DDTH ëª‡ë²ˆì§¸ ë‚ ì¸ì§€
+            ì‹œê°„ : HH24 (24ì‹œê°„) / HH (12ì‹œê°„)
+            ë¶„ : MI
+            ì´ˆ : SS
             
 */
-select 2+'2' from dual;
-select sysdate, to_char(sysdate, 'yyyy') "YYYY", to_char(sysdate, 'rrrr') "RRRR",to_char(sysdate, 'yy') "YY",to_char(sysdate,'year') "YEAR" from dual;
+SELECT 2+'2' FROM DUAL;
+SELECT SYSDATE, TO_CHAR(SYSDATE, 'YYYY') "YYYY", TO_CHAR(SYSDATE, 'RRRR') "RRRR",TO_CHAR(SYSDATE, 'YY') "YY",TO_CHAR(SYSDATE,'YEAR') "YEAR" FROM DUAL;
 
-select sysdate, to_char(sysdate, 'mm') "YYYY", to_char(sysdate, 'MON') "RRRR",to_char(sysdate, 'MONTH') from dual;
+SELECT SYSDATE, TO_CHAR(SYSDATE, 'MM') "YYYY", TO_CHAR(SYSDATE, 'MON') "RRRR",TO_CHAR(SYSDATE, 'MONTH') FROM DUAL;
 
-select sysdate, to_char(sysdate, 'dd') "YYYY", to_char(sysdate, 'day') "RRRR",to_char(sysdate, 'ddth')  from dual;
+SELECT SYSDATE, TO_CHAR(SYSDATE, 'DD') "YYYY", TO_CHAR(SYSDATE, 'DAY') "RRRR",TO_CHAR(SYSDATE, 'DDTH')  FROM DUAL;
 
-select sysdate, to_char(sysdate, 'yyyy-mm-dd HH24:MI:SS') from dual;
+SELECT SYSDATE, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') FROM DUAL;
 
 /*
-### TO_CHAR() -> ¼ýÀÚ ¹®ÀÚ
-*¿À¶óÅ¬ Ç¥Çö½Ä*
-9 9ÀÇ °³¼ö¸¸Å­ ÀÚ¸´¼ö¸¦ Ç¥Çö
-0 ºóÀÚ¸®¸¦ 0À¸·Î Ã¤¿ò
-$ $Ç¥½Ã ºÙÇô¼­ Ç¥½Ã
-. ¼Ò¼öÁ¡ ÀÌÇÏ Ç¥½Ã
-, Ãµ´ÜÀ§ ±¸ºÐ±âÈ£ Ç¥½Ã
-
+### TO_CHAR() -> ìˆ«ìž ë¬¸ìž
+*ì˜¤ë¼í´ í‘œí˜„ì‹*
+9 9ì˜ ê°œìˆ˜ë§Œí¼ ìžë¦¿ìˆ˜ë¥¼ í‘œí˜„
+0 ë¹ˆìžë¦¬ë¥¼ 0ìœ¼ë¡œ ì±„ì›€
+$ $í‘œì‹œ ë¶™í˜€ì„œ í‘œì‹œ
+. ì†Œìˆ˜ì  ì´í•˜ í‘œì‹œ
+, ì²œë‹¨ìœ„ êµ¬ë¶„ê¸°í˜¸ í‘œì‹œ
 */
 
-select to_char(1234, '99999') from dual;
-select to_char(1234, '09999') from dual;
-select to_char(1234, '$9999') from dual;
-select to_char(1234,'9999.99') from dual;
-select to_char(12345, '99,999') from dual;
+SELECT TO_CHAR(1234, '99999') FROM DUAL;
+SELECT TO_CHAR(1234, '09999') FROM DUAL;
+SELECT TO_CHAR(1234, '$9999') FROM DUAL;
+SELECT TO_CHAR(1234,'9999.99') FROM DUAL;
+SELECT TO_CHAR(12345, '99,999') FROM DUAL;
 
 -------------------------------------------------------------------------------------
 /*
-    ¹®Á¦ 2-4 : emp Å×ÀÌºí¿¡¼­, Á¦°øµÈ ÀÌ¹ÌÁö(2-4)¿Í °°ÀÌ 20¹ø ºÎ¼­¿¡ ¼Ò¼ÓµÈ Á÷¿øµéÀÇ ÀÌ¸§°ú 
-            2 ~ 3¹øÂ° ±ÛÀÚ¸¸ '-'À¸·Î º¯°æÇØ¼­ Ãâ·ÂÇÏ¼¼¿ä.
-    ¹®Á¦ 2-5 : Student Å×ÀÌºí¿¡¼­, Á¦°øµÈ ÀÌ¹ÌÁö(2-5)¿Í °°ÀÌ 1Àü°ø(depto1)ÀÌ 101¹øÀÎ ÇÐ»ýµéÀÇ 
-            ÀÌ¸§°ú ÁÖ¹Î¹øÈ£¸¦ Ãâ·ÂÇÏµÇ, ÁÖ¹Î¹øÈ£ÀÇ µÚ 7ÀÚ¸®´Â '-'°ú '/'·Î Ç¥½ÃµÇ°Ô Ãâ·ÂÇÏ¼¼¿ä. 
-    ¹®Á¦ 2-6 : Student Å×ÀÌºí¿¡¼­ Á¦°øµÈ ÀÌ¹ÌÁö(2-6)¿Í °°ÀÌ 1Àü°øÀÌ 102ÀÎ ÇÐ»ýµéÀÇ 
-            ÀÌ¸§°ú ÀüÈ­¹øÈ£, ÀüÈ­¹øÈ£¿¡¼­ ¾ÕÀÚ¸® ºÎºÐ¸¸ '*'Ã³¸®ÇÏ¿© Ãâ·ÂÇÏ¼¼¿ä. 
-            ´Ü, ¸ðµç ¾ÕÀÚ¸®´Â 3ÀÚ¸®·Î °£ÁÖ. 
-    ¹®Á¦ 2-7 : Student Å×ÀÌºí¿¡¼­, Á¦°øµÈ ÀÌ¹ÌÁö(2-7)¿Í °°ÀÌ 1Àü°øÀÌ 101¹øÀÎ ÇÐ°ú ÇÐ»ýµéÀÇ 
-            ÀÌ¸§°ú ÀüÈ­¹øÈ£¿Í ÀüÈ­¹øÈ£¿¡¼­ µÞÀÚ¸®¸¦ *·Î Ç¥½ÃÇØ¼­ Ãâ·ÂÇÏ¼¼¿ä. 
-    ¹®Á¦ 2-8 : Student Å×ÀÌºíÀÇ birthday ÄÃ·³À» »ç¿ëÇÏ¿© »ýÀÏÀÌ 1¿ùÀÎ ÇÐ»ýÀÇ 
-            ÇÐ»ý¹øÈ£(studno)¿Í ÀÌ¸§, birthday¸¦ Á¦°øµÈ ÀÌ¹ÌÁö(2-8) °ú °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä. 
-    ¹®Á¦ 2-9 : emp Å×ÀÌºíÀÇ hiredate ÄÃ·³À» »ç¿ëÇÏ¿© ÀÔ»çÀÏÀÌ 1,2,3¿ùÀÎ »ç¶÷µéÀÇ 
-            »ç¿ø¹øÈ£(empno), ÀÌ¸§(ename), ÀÔ»çÀÏÀ» Á¦°øµÈ ÀÌ¹ÌÁö(2-9)¿Í °°ÀÌ Ãâ·ÂÇÏ¼¼¿ä.
+    ë¬¸ì œ 2-4 : EMP í…Œì´ë¸”ì—ì„œ, ì œê³µëœ ì´ë¯¸ì§€(2-4)ì™€ ê°™ì´ 20ë²ˆ ë¶€ì„œì— ì†Œì†ëœ ì§ì›ë“¤ì˜ ì´ë¦„ê³¼ 
+            2 ~ 3ë²ˆì§¸ ê¸€ìžë§Œ '-'ìœ¼ë¡œ ë³€ê²½í•´ì„œ ì¶œë ¥í•˜ì„¸ìš”.
+    ë¬¸ì œ 2-5 : STUDENT í…Œì´ë¸”ì—ì„œ, ì œê³µëœ ì´ë¯¸ì§€(2-5)ì™€ ê°™ì´ 1ì „ê³µ(DEPTO1)ì´ 101ë²ˆì¸ í•™ìƒë“¤ì˜ 
+            ì´ë¦„ê³¼ ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ì¶œë ¥í•˜ë˜, ì£¼ë¯¼ë²ˆí˜¸ì˜ ë’¤ 7ìžë¦¬ëŠ” '-'ê³¼ '/'ë¡œ í‘œì‹œë˜ê²Œ ì¶œë ¥í•˜ì„¸ìš”. 
+    ë¬¸ì œ 2-6 : STUDENT í…Œì´ë¸”ì—ì„œ ì œê³µëœ ì´ë¯¸ì§€(2-6)ì™€ ê°™ì´ 1ì „ê³µì´ 102ì¸ í•™ìƒë“¤ì˜ 
+            ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸, ì „í™”ë²ˆí˜¸ì—ì„œ ì•žìžë¦¬ ë¶€ë¶„ë§Œ '*'ì²˜ë¦¬í•˜ì—¬ ì¶œë ¥í•˜ì„¸ìš”. 
+            ë‹¨, ëª¨ë“  ì•žìžë¦¬ëŠ” 3ìžë¦¬ë¡œ ê°„ì£¼. 
+    ë¬¸ì œ 2-7 : STUDENT í…Œì´ë¸”ì—ì„œ, ì œê³µëœ ì´ë¯¸ì§€(2-7)ì™€ ê°™ì´ 1ì „ê³µì´ 101ë²ˆì¸ í•™ê³¼ í•™ìƒë“¤ì˜ 
+            ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ì™€ ì „í™”ë²ˆí˜¸ì—ì„œ ë’·ìžë¦¬ë¥¼ *ë¡œ í‘œì‹œí•´ì„œ ì¶œë ¥í•˜ì„¸ìš”. 
+    ë¬¸ì œ 2-8 : STUDENT í…Œì´ë¸”ì˜ BIRTHDAY ì»¬ëŸ¼ì„ ì‚¬ìš©í•˜ì—¬ ìƒì¼ì´ 1ì›”ì¸ í•™ìƒì˜ 
+            í•™ìƒë²ˆí˜¸(STUDNO)ì™€ ì´ë¦„, BIRTHDAYë¥¼ ì œê³µëœ ì´ë¯¸ì§€(2-8) ê³¼ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”. 
+    ë¬¸ì œ 2-9 : EMP í…Œì´ë¸”ì˜ HIREDATE ì»¬ëŸ¼ì„ ì‚¬ìš©í•˜ì—¬ ìž…ì‚¬ì¼ì´ 1,2,3ì›”ì¸ ì‚¬ëžŒë“¤ì˜ 
+            ì‚¬ì›ë²ˆí˜¸(EMPNO), ì´ë¦„(ENAME), ìž…ì‚¬ì¼ì„ ì œê³µëœ ì´ë¯¸ì§€(2-9)ì™€ ê°™ì´ ì¶œë ¥í•˜ì„¸ìš”.
 */
 
 --2-4 
-select ename , replace(ename, substr(ename,2,2),'**') "REPLACE" from emp where deptno= 20;
+SELECT ENAME , REPLACE(ENAME, SUBSTR(ENAME,2,2),'**') "REPLACE" FROM EMP WHERE DEPTNO= 20;
 
 --2-5
 SELECT NAME, JUMIN, REPLACE(JUMIN, SUBSTR(JUMIN,7,7),'-/-/-/-') "REPLACE" FROM STUDENT WHERE DEPTNO1 =101;
-
---2-6
-SELECT * FROM STUDENT;
-SELECT NAME, TEL, REPLACE(TEL, SUBSTR(TEL,5,3),'***'  ) FROM STUDENT WHERE DEPTNO1 = 102;
-
---2-7
-SELECT NAME, TEL, REPLACE(TEL, SUBSTR(TEL,-4,4),'****'  ) FROM STUDENT WHERE DEPTNO1 = 101;
-
---2-8
-SELECT BIRTHDAY FROM STUDENT;
-SELECT STUDNO, NAME, TO_CHAR(BIRTHDAY, 'yyyy-mm-dd HH24:MI:SS')"BIRTHDAY" FROM STUDENT WHERE TO_CHAR(BIRTHDAY, 'mm')= 01 ;
-
---2-9
-SELECT EMPNO,ENAME, TO_CHAR(HIREDATE, 'yyyy-mm-dd HH24:MI:SS') "HIREDATE" FROM EMP WHERE TO_CHAR(HIREDATE,'MM')<'03';
-
-SELECT EMPNO,ENAME, TO_CHAR(HIREDATE, 'yyyy-mm-dd HH24:MI:SS') "HIREDATE" FROM EMP WHERE TO_CHAR(HIREDATE,'MM') in (01, 02,03);
-
--- empÅ×ÀÌºíÀ» Á¶È¸ÇÏ¿© ÀÌ¸§ÀÌ 'ALLEN'ÀÎ »ç¿øÀÇ »ç¹ø°ú ÀÌ¸§°ú ¿¬ºÀÀ» Ãâ·Â, Ãµ´ÜÀ§ ±¸ºÐ
-SELECT EMPNO, ENAME, TO_CHAR ((SAL*12) + COMM ,'999,999') "SALARY" FROM EMP WHERE ENAME = 'ALLEN';
-
--- PROFESSOR Å×ÀÌºíÀ» Á¶È¸, 201ºÎ¼­ ±³¼öµéÀÇ ÀÌ¸§, ±Þ¿©, º¸³Ê½º, ¿¬ºÀ(PAY*12)+BONUS Ãâ·Â
-SELECT NAME, PAY,  NVL(BONUS, 0), (PAY*12) + NVL(BONUS, 0) "SALARY" FROM PROFESSOR WHERE DEPTNO =201;
-SELECT NAME, PAY, BONUS, (PAY*12) +BONUS "SALARY" FROM PROFESSOR WHERE DEPTNO =201 AND BONUS IS NOT NULL;
-
---EMP Å×ÀÌºíÀ» Á¶È¸ COMM°ªÀ» °¡Áö°í ÀÖ´Â »ç¶÷µéÀÇ EMPNO, ENAME, HIREDATE, ÃÑ¿¬ºÀ, 15%ÀÎ»óµÈ ¿¬ºÀÀ» Ãâ·Â
--- ´Ü¿¬ºÀ = (SAL*12)+COMMÀ¸·Î °è»ê, ¿¬ºÀÀÇ $Ãß°¡
-SELECT EMPNO, ENAME, HIREDATE, TO_CHAR( (SAL*12)+COMM ,'999,999'  ) "SALARY",  '$'|| TO_CHAR(  ((SAL*12)+COMM)*1.15 , '999,999')  "INCREASED SALARY" FROM EMP WHERE COMM IS NOT NULL;
-
-
---to_number ('¹®ÀÚ') : ¹®ÀÚ ->¼ýÀÚ
-SELECT TO_NUMBER('1') FROM DUAL;
-
---TO_DATE ¹®ÀÚ -> ³¯Â¥
-SELECT TO_DATE('2022/03/12') FROM DUAL;
-SELECT TO_DATE('2022.03.12') FROM DUAL;
-SELECT TO_DATE('22-03-12') FROM DUAL;
-SELECT TO_DATE('20220312') FROM DUAL;
-
-/*
-4) ÀÏ¹ÝÇÔ¼ö
-    #NVL (ÄÃ·³¸í, DEFAULT) : null°ªÀ» ¸¸³ª¸é DEFAULT °ªÀ¸·Î Ä¡È¯ÇØ¼­ Ã³¸®
-    #NVL2 (ÄÃ·³1, ÄÃ·³2, ÄÃ·³3) : ÄÃ·³1ÀÌ NULLÀÌ ¾Æ´Ï¸é ÄÃ·³2, ÄÃ·³1ÀÌ NULLÀÌ¸é ÄÃ·³3
-*/
-SELECT ENAME, COMM, NVL(COMM, 0) FROM EMP;
-
---EMP Å×ÀÌºíÀÌ COMMÀÌ NULLÀÌ ¾Æ´Ï¸é SAL + COMM, COMMÀÌ NULLÀÌ¸é SAL
-SELECT SAL, COMM, NVL2(COMM, SAL+COMM, SAL) "RESULT" FROM EMP;
-
-/*
- # DECODE() : IF(»ïÇ×¿¬»êÀÚ)¹®À» ¿À¶óÅ¬ SQL·Î °¡Á®¿Â ÇÔ¼ö, ¿À¶óÅ¬¿¡¼­¸¸ Á¸ÀçÇÑ´Ù.
- # Å¸ÀÔ1. DECODE(A, B, '1',NULL) : ¸¶Áö¸· NULLÀº »ý·«°¡´É
- # Å¸ÀÔ2. DECODE(A, B, '1', '0') °°À¸¸ç 1 ´Ù¸£¸é 0
- # Å¸ÀÔ3. DECODE(A, B, '1', 'C', '0') :  A¿Í B°°À¸¸é 1, A¿Í C°°À¸¸é 0
- # Å¸ÀÔ4. DECODE(A, B, DECODE(C,D,'1', NULL)) :  A¿Í B°°À¸¸é ÁßÃ¸µÈ DECODE ½ÇÇà
- # Å¸ÀÔ5. DECODE(A, B, DECODE(C, D, '1', '2'),3)
-
-*/
-SELECT EMPNO, ENAME, DEPTNO, DECODE(DEPTNO,10, 'NEW YORK') "LOC" FROM EMP;
-SELECT EMPNO, ENAME, DEPTNO, DECODE(DEPTNO,10, 'NEW YORK', 'ETC') "LOC" FROM EMP;
-SELECT EMPNO, ENAME, DEPTNO, DECODE(DEPTNO,10, 'NEW YORK', 20, 'DALLAS') "LOC" FROM EMP;
-SELECT EMPNO, ENAME, DEPTNO, MGR,DECODE(DEPTNO, 20, DECODE(MGR,7566, 'HAHAHA')) "LOC" FROM EMP;
-
-
