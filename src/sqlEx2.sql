@@ -12,8 +12,14 @@ SELECT E1.ENAME , E2.MGR, E2.ENAME FROM EMP E1, EMP E2 WHERE E1.MGR = E2.EMPNO;
 SELECT DEPTNO FROM DEPT WHERE DEPTNO NOT IN (SELECT DEPTNO FROM EMP GROUP BY DEPTNO HAVING COUNT(*)>0);
 
 --<<5>> 'ALLEN'의 직무와 같은사람의 이름, 부서명, 급여, 직무를 출력하라.
+SELECT E.ENAME, D.DNAME, E.SAL, E.JOB FROM EMP E, DEPT D where e.deptno = d.deptno AND  E.JOB = (SELECT JOB FROM EMP WHERE ENAME = 'ALLEN');
+
 SELECT E2.ENAME, D.DNAME, E2.SAL, E2.JOB  FROM EMP E1, EMP E2, DEPT D WHERE  (E1.ENAME = 'ALLEN' AND E1.JOB = E2.JOB) AND E1.DEPTNO = D.DEPTNO; 
 
+select e.ename, d.dname, e.sal, e.job 
+   from emp e, dept d 
+   where e.deptno = d.deptno 
+   and e.job = (select job from emp where ename = 'ALLEN');
 --<<6>> 'JONES'가 속해있는 부서의 모든사람의 사원번호, 이름, 입사일자, 급여를 출력하라.
 SELECT E1.EMPNO ,E2.ENAME, E2.HIREDATE, E2.SAL  FROM EMP E1, EMP E2  WHERE E1.ENAME = 'JONES' AND E1.DEPTNO = E2.DEPTNO;
 SELECT EMPNO, ENAME, HIREDATE , SAL FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME = 'JONES');
