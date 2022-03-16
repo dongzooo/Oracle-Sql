@@ -1,33 +1,33 @@
 /*
-Å×ÀÌºí »ý¼º : CREATE
+í…Œì´ë¸” ìƒì„± : CREATE
 
-CREATE TABLE [Å×ÀÌºí¸í] (
-ÄÃ·³¸í ÄÃ·³µ¥ÀÌÅÍ Å¸ÀÔ (¿É¼Ç),
-ÄÃ·³¸í ÄÃ·³µ¥ÀÌÅÍ Å¸ÀÔ (¿É¼Ç),
+CREATE TABLE [í…Œì´ë¸”ëª…] (
+ì»¬ëŸ¼ëª… ì»¬ëŸ¼ë°ì´í„° íƒ€ìž… (ì˜µì…˜),
+ì»¬ëŸ¼ëª… ì»¬ëŸ¼ë°ì´í„° íƒ€ìž… (ì˜µì…˜),
 ...
 );
 
-ÄÃ·³¸í : ¾ËÆÄºª ¼Ò¹®ÀÚ ºÙ¿©¼­
-µ¥ÀÌÅÍÅ¸ÀÔ : ¹Ýµå½Ã ¸í½Ã ¹®ÀÚ¿­ : VARCHAR2
-¿É¼Ç : Á¦¾àÁ¶°Ç CONTRAINT »ý·«°¡´É : ºÎÀûÀýÇÑ ÀÚ·á°¡ ÀÔ·ÂµÇ´Â °ÍÀ» ¹æÁöÇÏ±â À§ÇØ ¿©·¯°¡Áö ±ÔÄ¢À» Á¤ÇØ ³õÀº °Í
+ì»¬ëŸ¼ëª… : ì•ŒíŒŒë²³ ì†Œë¬¸ìž ë¶™ì—¬ì„œ
+ë°ì´í„°íƒ€ìž… : ë°˜ë“œì‹œ ëª…ì‹œ ë¬¸ìžì—´ : VARCHAR2
+ì˜µì…˜ : ì œì•½ì¡°ê±´ CONTRAINT ìƒëžµê°€ëŠ¥ : ë¶€ì ì ˆí•œ ìžë£Œê°€ ìž…ë ¥ë˜ëŠ” ê²ƒì„ ë°©ì§€í•˜ê¸° ìœ„í•´ ì—¬ëŸ¬ê°€ì§€ ê·œì¹™ì„ ì •í•´ ë†“ì€ ê²ƒ
 
-NOT NULL : NULL °ªÀÌ µÑ¾î¿Ã ¼ö ¾ø´Ù
-UNIQUE : Áßº¹ ¿ä¼Ò ¿Ã ¼ö ¾ø´Ù
-PRIMARY KEY : Áß¿äÇÔ, NOT NULL + UNIQUE ÇüÅÂ·Î Å×ÀÌºí ÇÑ°³´Â ÀÖ´Â ÇüÅÂ´Ù ÁÁ°í, Å×ÀÌºí´ç ÇÑ°³ ÄÃ·³¸¸ PKÁöÁ¤°¡´É
-·¹ÄÚµå ±¸ºÐ Á÷´Â ¿ä¼Ò
+NOT NULL : NULL ê°’ì´ ë‘˜ì–´ì˜¬ ìˆ˜ ì—†ë‹¤
+UNIQUE : ì¤‘ë³µ ìš”ì†Œ ì˜¬ ìˆ˜ ì—†ë‹¤
+PRIMARY KEY : ì¤‘ìš”í•¨, NOT NULL + UNIQUE í˜•íƒœë¡œ í…Œì´ë¸” í•œê°œëŠ” ìžˆëŠ” í˜•íƒœë‹¤ ì¢‹ê³ , í…Œì´ë¸”ë‹¹ í•œê°œ ì»¬ëŸ¼ë§Œ PKì§€ì •ê°€ëŠ¥
+ë ˆì½”ë“œ êµ¬ë¶„ ì§ëŠ” ìš”ì†Œ
 
-FOREIGN KEY : µÎ°³ Å×ÀÌºíÀ» ¿¬°á ½ÃÅ³ ¶§ ´Ù¸¥ Å×ÀÌºíÀÇ PK°¡ µÇ´Â Ä®·³À» ÇöÀç Å×ÀÌºí¿¡ FK·Î ÁöÁ¤
+FOREIGN KEY : ë‘ê°œ í…Œì´ë¸”ì„ ì—°ê²° ì‹œí‚¬ ë•Œ ë‹¤ë¥¸ í…Œì´ë¸”ì˜ PKê°€ ë˜ëŠ” ì¹¼ëŸ¼ì„ í˜„ìž¬ í…Œì´ë¸”ì— FKë¡œ ì§€ì •
 
-DEFAULT : µðÆúÆ® °ª ÁöÁ¤
+DEFAULT : ë””í´íŠ¸ ê°’ ì§€ì •
 
-CHECK : Á¶°Ç Ã¼Å© µî °Ë»çÇÏ°í µé¾î°¥ ¼ö ÀÖ´Â
+CHECK : ì¡°ê±´ ì²´í¬ ë“± ê²€ì‚¬í•˜ê³  ë“¤ì–´ê°ˆ ìˆ˜ ìžˆëŠ”
 
-* Å×ÀÌºí »ý¼º½Ã ÁÖÀÇ»çÇ×
-- Å×ÀÌºí ÀÌ¸§°ú ÄÃ·³Àº ¾ËÆÄºªÀ¸·Î ½ÃÀÛ
-A-Z¹®ÀÚ, 0-9¼ýÀÚ, $#_»ç¿ë°¡´É, °ø¹éx
--ÄÃ·³ ¿¹¾à¾î »ç¿ëºÒ°¡
-- ÇÑ °èÁ¤¿¡¼­ Å×ÀÌºí¸í Áßº¹ ºÒ°¡
-- ÇÑÅ×ÀÌºí ¾È¿¡¼­ ÄÃ·³ÀÌ¸§Àº Áßº¹ ºÒ°¡, ´Ù¸¥ Å×ÀÌºí¿¡¼­ÀÇ ÄÃ·³ ÀÌ¸§°ú µ¿ÀÏÇØµµ ¹«°ü
+* í…Œì´ë¸” ìƒì„±ì‹œ ì£¼ì˜ì‚¬í•­
+- í…Œì´ë¸” ì´ë¦„ê³¼ ì»¬ëŸ¼ì€ ì•ŒíŒŒë²³ìœ¼ë¡œ ì‹œìž‘
+A-Zë¬¸ìž, 0-9ìˆ«ìž, $#_ì‚¬ìš©ê°€ëŠ¥, ê³µë°±x
+-ì»¬ëŸ¼ ì˜ˆì•½ì–´ ì‚¬ìš©ë¶ˆê°€
+- í•œ ê³„ì •ì—ì„œ í…Œì´ë¸”ëª… ì¤‘ë³µ ë¶ˆê°€
+- í•œí…Œì´ë¸” ì•ˆì—ì„œ ì»¬ëŸ¼ì´ë¦„ì€ ì¤‘ë³µ ë¶ˆê°€, ë‹¤ë¥¸ í…Œì´ë¸”ì—ì„œì˜ ì»¬ëŸ¼ ì´ë¦„ê³¼ ë™ì¼í•´ë„ ë¬´ê´€
 
 */
 
@@ -38,25 +38,25 @@ CREATE TABLE TEST(
     REG DATE DEFAULT SYSDATE
 );
 
---»ç¿ëÀÚ°¡ º¸À¯ÇÑ Å×ÀÌºí Á¶È¸
+--ì‚¬ìš©ìžê°€ ë³´ìœ í•œ í…Œì´ë¸” ì¡°íšŒ
 SELECT TABLE_NAME FROM USER_TABLE;
 
---Å×ÀÌºí Á¤º¸ È®ÀÎ
+--í…Œì´ë¸” ì •ë³´ í™•ì¸
 DESC TEST;
 SELECT * FROM TEST;
 
 /*
-2. ·¹ÄÚµåÃß°¡ : INSERT NOT NULL ¼Ó¼ºÀ» °¡Áø ÄÃ·³¿¡´Â ¹Ýµå½Ã °ªÀ» ³Ö¾îÁÖ±â;
-    1)¸ðµç ÄÃ·³ÀÇ µ¥ÀÌÅÍ Ãß°¡
-    INSERT INTO [Å×ÀÌºí¸í] VALUES( [°ªµé ½°Ç¥ ±¸ºÐÀÚ·Î ÄÃ·³¼ø¼­´ë·Î ³ª¿­;] )
+2. ë ˆì½”ë“œì¶”ê°€ : INSERT NOT NULL ì†ì„±ì„ ê°€ì§„ ì»¬ëŸ¼ì—ëŠ” ë°˜ë“œì‹œ ê°’ì„ ë„£ì–´ì£¼ê¸°;
+    1)ëª¨ë“  ì»¬ëŸ¼ì˜ ë°ì´í„° ì¶”ê°€
+    INSERT INTO [í…Œì´ë¸”ëª…] VALUES( [ê°’ë“¤ ì‰¼í‘œ êµ¬ë¶„ìžë¡œ ì»¬ëŸ¼ìˆœì„œëŒ€ë¡œ ë‚˜ì—´;] )
     
-    2)¿øÇÏ´Â ÄÃ·³¸¸ µ¥ÀÌÅÍ Ãß°¡
-    INSERT INTO [Å×ÀÌºí¸í (ÄÃ·³¸í, ÄÃ·³¸í,..)] VALUES ( [ÄÃ·³¸í ÀÛ¼ºÇÑ ¼ø¼­´ë·Î °ªÀ» ³ª¿­]);
+    2)ì›í•˜ëŠ” ì»¬ëŸ¼ë§Œ ë°ì´í„° ì¶”ê°€
+    INSERT INTO [í…Œì´ë¸”ëª… (ì»¬ëŸ¼ëª…, ì»¬ëŸ¼ëª…,..)] VALUES ( [ì»¬ëŸ¼ëª… ìž‘ì„±í•œ ìˆœì„œëŒ€ë¡œ ê°’ì„ ë‚˜ì—´]);
  
 */
 
 INSERT INTO TEST VALUES('JAVA', '1234', 20, SYSDATE);
-INSERT INTO TEST (PW,ID,AGE,REG) VALUES('JAVA01', '1234', 20, SYSDATE); --¼ø¼­ ¾î±â¸é ¾È‰Î
+INSERT INTO TEST (PW,ID,AGE,REG) VALUES('JAVA01', '1234', 20, SYSDATE); --ìˆœì„œ ì–´ê¸°ë©´ ì•ˆëŒ
 
 INSERT INTO TEST(ID, PW) VALUES('JAVA01', '0000');
 SELECT * FROM TEST;
@@ -76,11 +76,11 @@ SELECT * FROM TEST WHERE PW = '1000';
 SELECT * FROM TEST ORDER BY ID DESC;
 
 /*
-    1)ÀÏ°ý ¼öÁ¤
-    UPDATE [Å×ÀÌºí¸í] SET [ÄÃ·³¸í = °ª]
-    2) ·¹ÄÚµå Á¶°Ç ¼öÁ¤
-    UPDATE [Å×ÀÌºí¸í] SET [ÄÃ·³¸í=°ª] (, ÄÃ·³¸í=°ª, ...)
-    WHERE [Á¶°Ç½Ä]
+    1)ì¼ê´„ ìˆ˜ì •
+    UPDATE [í…Œì´ë¸”ëª…] SET [ì»¬ëŸ¼ëª… = ê°’]
+    2) ë ˆì½”ë“œ ì¡°ê±´ ìˆ˜ì •
+    UPDATE [í…Œì´ë¸”ëª…] SET [ì»¬ëŸ¼ëª…=ê°’] (, ì»¬ëŸ¼ëª…=ê°’, ...)
+    WHERE [ì¡°ê±´ì‹]
 */
 
 SELECT *FROM TEST;
@@ -97,160 +97,160 @@ INSERT INTO TEST VALUES('JAVA13', '1234', 10, SYSDATE);
 SELECT *FROM TEST;
 
 /*
-4. ·¹ÄÚµå »èÁ¦ : DELETE
-    1) ÀüÃ¼ ÄÚµå »èÁ¦
-    DELETE FROM [Å×ÀÌºí¸í]
-    TRUNCATE TABEL [Å×ÀÌºí¸í]
+4. ë ˆì½”ë“œ ì‚­ì œ : DELETE
+    1) ì „ì²´ ì½”ë“œ ì‚­ì œ
+    DELETE FROM [í…Œì´ë¸”ëª…]
+    TRUNCATE TABEL [í…Œì´ë¸”ëª…]
     
-    2) ·¹ÄÚµå Á¶°Ç »èÁ¦
-    DELETE FROM [Å×ÀÌºí¸í]
-    WHERE [Á¶°Ç½Ä]
+    2) ë ˆì½”ë“œ ì¡°ê±´ ì‚­ì œ
+    DELETE FROM [í…Œì´ë¸”ëª…]
+    WHERE [ì¡°ê±´ì‹]
 */
 
 DELETE FROM TEST WHERE ID ='JAVA';
 SELECT *FROM TEST;
 
---DELETE FROM TEST; ·¹ÄÚµå ÀüÃ¼³¯¸®±â
---TRUNCATE TABLE TEST; ·¹ÄÚµå ¸ðµÎ ³¯¸®°í Á¡À¯ÇÏ´ø °ø°£µµ ¹Ý³³
+--DELETE FROM TEST; ë ˆì½”ë“œ ì „ì²´ë‚ ë¦¬ê¸°
+--TRUNCATE TABLE TEST; ë ˆì½”ë“œ ëª¨ë‘ ë‚ ë¦¬ê³  ì ìœ í•˜ë˜ ê³µê°„ë„ ë°˜ë‚©
 
 /*
-5. Å×ÀÌºí Á¤º¸ ¼öÁ¤ : ALTER
- 1) ÄÃ·³ Ãß°¡
-    ALTER  TABLE [Å×ÀÌºí¸í] ADD ( [ÄÃ·³¸í µ¥ÀÌÅÍ Å¸ÀÔ](¿É¼Ç) )
-    ÄÃ·³°ú ÄÃ·³»çÀÌ¿¡ Ãß°¡ ºÒ°¡ Ç×»ó ¸ÇµÚ¿¡ Ãß°¡
-    Å×ÀÌºí¿¡ ÀÌ¹Ì µ¥ÀÌÅÍ°¡ µé¾î°¡ ÀÖÀ» ¶§´Â NOT NULL ¿É¼Ç ÁÙ¼ö°¡ ¾ø´Ù. DEFAULT °¡´É
+5. í…Œì´ë¸” ì •ë³´ ìˆ˜ì • : ALTER
+ 1) ì»¬ëŸ¼ ì¶”ê°€
+    ALTER  TABLE [í…Œì´ë¸”ëª…] ADD ( [ì»¬ëŸ¼ëª… ë°ì´í„° íƒ€ìž…](ì˜µì…˜) )
+    ì»¬ëŸ¼ê³¼ ì»¬ëŸ¼ì‚¬ì´ì— ì¶”ê°€ ë¶ˆê°€ í•­ìƒ ë§¨ë’¤ì— ì¶”ê°€
+    í…Œì´ë¸”ì— ì´ë¯¸ ë°ì´í„°ê°€ ë“¤ì–´ê°€ ìžˆì„ ë•ŒëŠ” NOT NULL ì˜µì…˜ ì¤„ìˆ˜ê°€ ì—†ë‹¤. DEFAULT ê°€ëŠ¥
     
- 2) ÄÃ·³ Å¸ÀÔ º¯°æ
-    ALTER TABLE [Å×ÀÌºí ¸í] MODIFY (ÄÃ·³¸í µ¥ÀÌÅÍ Å¸ÀÔ (¿É¼Ç) );
-    *ÄÃ·³º¯°æ ½Ã °í·Á»çÇ×
-    - ÇØ´ç ÄÃ·³ÀÇ Å©±â¸¦ ´Ã¸± ¼ö´Â ÀÖÁö¸¸ ÁÙÀÌÁö´Â ¸øÇÔ, ±âÁ¸ µ¥ÀÌÅÍ ÈÑ¼Õ ¿ì·Á
-    - ÇØ´ç ÄÃ·³ÀÇ NULL°ª¸¸À» °¡Áö°í ÀÖ°Å³ª Å×ÀÌºí¿¡ ¾Æ¹« ·¹ÄÚµå°¡ ¾øÀ¸¸é ÄÃ·³ÀÇ Å©±â¸¦ ÁÙÀÏ ¼ö ÀÖ´Ù.
-    - ÇØ´ç ÄÃ·³ÀÇ NULL °ª¸¸À» °¡Áö°í ÀÖÀ¸¸é µ¥ÀÌÅÍ À¯ÇüÀ» º¯°æÇÒ ¼ö ÀÖ´Ù
-    - ÇØ´ç ÄÃ·³ÀÇ DEFAULT °ªÀ» ¹Ù²Ù¸é º¯°æ ÀÌÈÄ¿¡ ¹ß»ýÇÏ´Â ·¹ÄÚµå »ðÀÔ¿¡¸¸ ¿µÇâÀ» ÁØ´Ù. ÀÌÀüÀº ±×´ë·Î
-    - ÇØ´ç ÄÃ·³ÀÇ NULL°ªÀÌ ¾øÀ» °æ¿ì¿¡¸¸ NOT NULL Á¦¾àÁ¶°Ç Ãß°¡°¡´É
+ 2) ì»¬ëŸ¼ íƒ€ìž… ë³€ê²½
+    ALTER TABLE [í…Œì´ë¸” ëª…] MODIFY (ì»¬ëŸ¼ëª… ë°ì´í„° íƒ€ìž… (ì˜µì…˜) );
+    *ì»¬ëŸ¼ë³€ê²½ ì‹œ ê³ ë ¤ì‚¬í•­
+    - í•´ë‹¹ ì»¬ëŸ¼ì˜ í¬ê¸°ë¥¼ ëŠ˜ë¦´ ìˆ˜ëŠ” ìžˆì§€ë§Œ ì¤„ì´ì§€ëŠ” ëª»í•¨, ê¸°ì¡´ ë°ì´í„° í›¼ì† ìš°ë ¤
+    - í•´ë‹¹ ì»¬ëŸ¼ì˜ NULLê°’ë§Œì„ ê°€ì§€ê³  ìžˆê±°ë‚˜ í…Œì´ë¸”ì— ì•„ë¬´ ë ˆì½”ë“œê°€ ì—†ìœ¼ë©´ ì»¬ëŸ¼ì˜ í¬ê¸°ë¥¼ ì¤„ì¼ ìˆ˜ ìžˆë‹¤.
+    - í•´ë‹¹ ì»¬ëŸ¼ì˜ NULL ê°’ë§Œì„ ê°€ì§€ê³  ìžˆìœ¼ë©´ ë°ì´í„° ìœ í˜•ì„ ë³€ê²½í•  ìˆ˜ ìžˆë‹¤
+    - í•´ë‹¹ ì»¬ëŸ¼ì˜ DEFAULT ê°’ì„ ë°”ê¾¸ë©´ ë³€ê²½ ì´í›„ì— ë°œìƒí•˜ëŠ” ë ˆì½”ë“œ ì‚½ìž…ì—ë§Œ ì˜í–¥ì„ ì¤€ë‹¤. ì´ì „ì€ ê·¸ëŒ€ë¡œ
+    - í•´ë‹¹ ì»¬ëŸ¼ì˜ NULLê°’ì´ ì—†ì„ ê²½ìš°ì—ë§Œ NOT NULL ì œì•½ì¡°ê±´ ì¶”ê°€ê°€ëŠ¥
     
- 3) ÄÃ·³ ÀÌ¸§ º¯°æ ALTER - RENAME
-    ALTER TABLE [Å×ÀÌºí¸í] RENAME COLUMN [±¸ ÄÃ·³¸í] TO [»õÄÃ·³¸í];
- 4) ÄÃ·³ »èÁ¦
-    ALTER TABLE [Å×ÀÌºí¸í] DROP COLUMN [ÄÃ·³¸í]
+ 3) ì»¬ëŸ¼ ì´ë¦„ ë³€ê²½ ALTER - RENAME
+    ALTER TABLE [í…Œì´ë¸”ëª…] RENAME COLUMN [êµ¬ ì»¬ëŸ¼ëª…] TO [ìƒˆì»¬ëŸ¼ëª…];
+ 4) ì»¬ëŸ¼ ì‚­ì œ
+    ALTER TABLE [í…Œì´ë¸”ëª…] DROP COLUMN [ì»¬ëŸ¼ëª…]
 */
 
 SELECT * FROM TEST;
---ÄÃ·³Ãß°¡
+--ì»¬ëŸ¼ì¶”ê°€
 ALTER TABLE TEST ADD(NAME VARCHAR(50));
 COMMIT;
 
---ÄÃ·³Å¸ÀÔ º¯°æ
+--ì»¬ëŸ¼íƒ€ìž… ë³€ê²½
 ALTER TABLE TEST MODIFY(NAME NUMBER);
 DESC TEST;
 
---ÄÃ·³ÀÌ¸§ º¯°æ
+--ì»¬ëŸ¼ì´ë¦„ ë³€ê²½
 ALTER TABLE TEST RENAME COLUMN NAME TO NICKNAME;
 
---ÄÃ·³»èÁ¦
+--ì»¬ëŸ¼ì‚­ì œ
 ALTER TABLE TEST DROP COLUMN NICKNAME;
 
 /*
-6. Å×ÀÌºí »èÁ¦ : DROP
-: Å×ÀÌºí ÀÚÃ¼¸¦ »èÁ¦
+6. í…Œì´ë¸” ì‚­ì œ : DROP
+: í…Œì´ë¸” ìžì²´ë¥¼ ì‚­ì œ
 
-DROP TABLE [Å×ÀÌºí¸í]
+DROP TABLE [í…Œì´ë¸”ëª…]
 */
 
 --DROP TABLE TEST
 
 /*
-7. ¿¹¸í(º°Äª) : ALIAS
-    : Á¶È¸µÈ °á°úÀÇ ÀÏÁ¾ÀÇ º°¸í(ALIAS)¸¦ ºÎ¿©ÇØ¼­ ÄÃ·³ ·¹ÀÌºíÀ» º¯°æÇÒ ¼ö ÀÖ´Ù.
-    ½ÇÁ¦ Å×ÀÌºíÀÇ ÄÃ·³¸íÀÌ º¯°æµÇÁö ¾Ê°í, °Ë»ö½Ã Ç¥¿¡ ¿¹¸íÀ¸·Î ÇÑ¹ø ºÙ´Â´Ù.
+7. ì˜ˆëª…(ë³„ì¹­) : ALIAS
+    : ì¡°íšŒëœ ê²°ê³¼ì˜ ì¼ì¢…ì˜ ë³„ëª…(ALIAS)ë¥¼ ë¶€ì—¬í•´ì„œ ì»¬ëŸ¼ ë ˆì´ë¸”ì„ ë³€ê²½í•  ìˆ˜ ìžˆë‹¤.
+    ì‹¤ì œ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ëª…ì´ ë³€ê²½ë˜ì§€ ì•Šê³ , ê²€ìƒ‰ì‹œ í‘œì— ì˜ˆëª…ìœ¼ë¡œ í•œë²ˆ ë¶™ëŠ”ë‹¤.
     
-    SELECT [ÄÃ·³¸í] [¿¹¸í], [Ä®·³¸í] [¿¹¸í] FRORM [Å×ÀÌºí¸í]
-    SELECT [ÄÃ·³¸í] AS [¿¹¸í], [Ä®·³¸í] AS [¿¹¸í] FRORM [Å×ÀÌºí¸í]
+    SELECT [ì»¬ëŸ¼ëª…] [ì˜ˆëª…], [ì¹¼ëŸ¼ëª…] [ì˜ˆëª…] FRORM [í…Œì´ë¸”ëª…]
+    SELECT [ì»¬ëŸ¼ëª…] AS [ì˜ˆëª…], [ì¹¼ëŸ¼ëª…] AS [ì˜ˆëª…] FRORM [í…Œì´ë¸”ëª…]
     
-    ¿¹¸íÀº ÄÃ·³¸í ¹Ù·Î µÚ¿¡ ÀÛ¼º
-    ÄÃ·³¸í°ú ¿¹¸í »çÀÌ¿¡ AS, as Å°¿öµå¸¦ »ç¿ëÇÒ ¼öµµ ÀÖ´Ù
-    ¿¹¸íÀº ½Öµû¿ÈÇ¥·Î ¹­¾î¼­ Ç¥ÇöÇÏ¸é ¿¹¸í¿¡ °ø¹éÀÌ³ª Æ¯¼ö¹®ÀÚ¸¦ Æ÷ÇÔ½ÃÅ³ ¼ö ÀÖ°í ´ë ¼Ò¹®ÀÚ ±¸ºÐÇÏ°Ô ÇÒ ¼öµµ ÀÖ´Ù.
-    FROMÀý¿¡ Å×ÀÌºí ALIAS¸¦ ¼³Á¤ÇÏ¸é, SELECT ¹®Àå¿¡¼­ Å×ÀÌºí¸í ´ë½Å »ç¿ë °¡´É
+    ì˜ˆëª…ì€ ì»¬ëŸ¼ëª… ë°”ë¡œ ë’¤ì— ìž‘ì„±
+    ì»¬ëŸ¼ëª…ê³¼ ì˜ˆëª… ì‚¬ì´ì— AS, as í‚¤ì›Œë“œë¥¼ ì‚¬ìš©í•  ìˆ˜ë„ ìžˆë‹¤
+    ì˜ˆëª…ì€ ìŒë”°ì˜´í‘œë¡œ ë¬¶ì–´ì„œ í‘œí˜„í•˜ë©´ ì˜ˆëª…ì— ê³µë°±ì´ë‚˜ íŠ¹ìˆ˜ë¬¸ìžë¥¼ í¬í•¨ì‹œí‚¬ ìˆ˜ ìžˆê³  ëŒ€ ì†Œë¬¸ìž êµ¬ë¶„í•˜ê²Œ í•  ìˆ˜ë„ ìžˆë‹¤.
+    FROMì ˆì— í…Œì´ë¸” ALIASë¥¼ ì„¤ì •í•˜ë©´, SELECT ë¬¸ìž¥ì—ì„œ í…Œì´ë¸”ëª… ëŒ€ì‹  ì‚¬ìš© ê°€ëŠ¥
 */
 SELECT ID, PW FROM TEST;
-SELECT ID ¾ÆÀÌµð, PW ºñ¹Ð¹øÈ£ FROM TEST;
-SELECT ID AS "´ç½Å ¾ÆÀÌµð", PW AS "´ç½Å ºñ¹Ð¹øÈ£" FROM TEST AS T;
-SELECT T.ID "´ç½ÅÀÇ ¾ÆÀÌµð", T.PW "´ç½ÅÀÇ ºñ¹Ð¹øÈ£" FROM T;
+SELECT ID ì•„ì´ë””, PW ë¹„ë°€ë²ˆí˜¸ FROM TEST;
+SELECT ID AS "ë‹¹ì‹  ì•„ì´ë””", PW AS "ë‹¹ì‹  ë¹„ë°€ë²ˆí˜¸" FROM TEST AS T;
+SELECT T.ID "ë‹¹ì‹ ì˜ ì•„ì´ë””", T.PW "ë‹¹ì‹ ì˜ ë¹„ë°€ë²ˆí˜¸" FROM T;
 
 /*
-8. Æ®·»Á§¼Ç
-µ¥ÀÌÅÍ Ã³¸®ÀÇ ÇÑ ´ÜÀ§
-Æ®·»Á§¼Ç : ÀÌÀü Ä¿¹ÔÀÌ ÀÏ¾î³­ ÈÄ ~ ´ÙÀ½ Ä¿¹Ô Àü±îÁöÀÇ ÀÛ¾÷
+8. íŠ¸ë Œì ì…˜
+ë°ì´í„° ì²˜ë¦¬ì˜ í•œ ë‹¨ìœ„
+íŠ¸ë Œì ì…˜ : ì´ì „ ì»¤ë°‹ì´ ì¼ì–´ë‚œ í›„ ~ ë‹¤ìŒ ì»¤ë°‹ ì „ê¹Œì§€ì˜ ìž‘ì—…
 
-9. ±×·ìÇÔ¼ö
-1) Á¾·ù
-    COUNT : µ¥ÀÌÅÍÀÇ °³¼ö
-    SUM : ÃÑÇÕ
-    AVG : Æò±Õ
-    MAX : µ¥ÀÌÅÍÁß Å«°ª
-    MIN : µ¥ÀÌÅÍÁß °¡Àå ÀÛÀº°ª
+9. ê·¸ë£¹í•¨ìˆ˜
+1) ì¢…ë¥˜
+    COUNT : ë°ì´í„°ì˜ ê°œìˆ˜
+    SUM : ì´í•©
+    AVG : í‰ê· 
+    MAX : ë°ì´í„°ì¤‘ í°ê°’
+    MIN : ë°ì´í„°ì¤‘ ê°€ìž¥ ìž‘ì€ê°’
 */
 SELECT COUNT(*) FROM TEST;
 SELECT COUNT(*) FROM EMP;
 SELECT COUNT(*), COUNT(COMM) FROM EMP;
 
 SELECT SUM(COMM) FROM EMP;
-SELECT AVG(COMM) FROM EMP; --³Î Á¦¿ÜÇÑ °ª
-SELECT AVG(NVL(COMM,0)) FROM EMP; --NULLµµ Ä«¿îÆ®ÇØ¼­ ÀüÃ¼Æò±Õ
+SELECT AVG(COMM) FROM EMP; --ë„ ì œì™¸í•œ ê°’
+SELECT AVG(NVL(COMM,0)) FROM EMP; --NULLë„ ì¹´ìš´íŠ¸í•´ì„œ ì „ì²´í‰ê· 
 SELECT MAX(HIREDATE) FROM EMP;
 SELECT MIN(HIREDATE) FROM EMP;
 SELECT * FROM EMP;
 
 /*
-10. GROUP BY : Æ¯Á¤ Á¶°ÇÀ¸·Î ¼¼ºÎÀûÀÎ ±×·ìÈ­
-    GROUP BY [±×·çÇÎ ±âÁØ]
-    *WHERE Àý µÚ, ORDER BY Àü.
+10. GROUP BY : íŠ¹ì • ì¡°ê±´ìœ¼ë¡œ ì„¸ë¶€ì ì¸ ê·¸ë£¹í™”
+    GROUP BY [ê·¸ë£¨í•‘ ê¸°ì¤€]
+    *WHERE ì ˆ ë’¤, ORDER BY ì „.
 */
 SELECT DEPTNO, COUNT(*) FROM EMP GROUP BY DEPTNO ORDER BY 2 DESC;
 --WHERE
 
---JOBÀ» ±âÁØÀ¸·Î °¢ ¾÷¹«¿¡ ÇØ´çÇÏ´Â »ç¿ø¼ö¤Ñ ¾÷¹«º° Æò±Õ ±Þ¿©, ÃÖ°í ±Þ¿©, ±Þ¿©ÇÕ°è
-SELECT JOB, COUNT(*) "ÀÎ¿ø¼ö", AVG(SAL)  "Æò±Õ±Þ¿©", MAX(SAL) "ÃÖ°í±Þ¿©", MIN(SAL) "ÃÖÀú±Þ¿©" , SUM(SAL) "±Þ¿©ÇÕ°è" FROM EMP GROUP BY JOB;
+--JOBì„ ê¸°ì¤€ìœ¼ë¡œ ê° ì—…ë¬´ì— í•´ë‹¹í•˜ëŠ” ì‚¬ì›ìˆ˜ã…¡ ì—…ë¬´ë³„ í‰ê·  ê¸‰ì—¬, ìµœê³  ê¸‰ì—¬, ê¸‰ì—¬í•©ê³„
+SELECT JOB, COUNT(*) "ì¸ì›ìˆ˜", AVG(SAL)  "í‰ê· ê¸‰ì—¬", MAX(SAL) "ìµœê³ ê¸‰ì—¬", MIN(SAL) "ìµœì €ê¸‰ì—¬" , SUM(SAL) "ê¸‰ì—¬í•©ê³„" FROM EMP GROUP BY JOB;
 
---11. WHERE Àý¿¡´Â Áý°èÇÕ¼ö ºÒ°¡
--- Áý°èÇÔ¼ö·Î Á¶°Ç ºñ±³ÇÒ ¶§ »ç¿ë
+--11. WHERE ì ˆì—ëŠ” ì§‘ê³„í•©ìˆ˜ ë¶ˆê°€
+-- ì§‘ê³„í•¨ìˆ˜ë¡œ ì¡°ê±´ ë¹„êµí•  ë•Œ ì‚¬ìš©
 
---JOBº°·Î Á÷¿ø¼ö°¡ 3¸íÀÌ»óÀÎ JOBÀÎ¿ø¼ö Ãâ·Â
-SELECT JOB, COUNT(*) "Á÷¿ø¼ö" FROM EMP GROUP BY JOB HAVING COUNT(*) >=3;
+--JOBë³„ë¡œ ì§ì›ìˆ˜ê°€ 3ëª…ì´ìƒì¸ JOBì¸ì›ìˆ˜ ì¶œë ¥
+SELECT JOB, COUNT(*) "ì§ì›ìˆ˜" FROM EMP GROUP BY JOB HAVING COUNT(*) >=3;
 
---ÀüÃ¼ ¿ù±ÞÀÌ 5000À» ÃÊ°úÇÏ´Â JOB¿¡ ´ëÇØ, JOB°ú ¿ù ±Þ¿© ÇÕ°è¸¦ Á¶È¸, ´Ü, JOBÀÌ 'SALES'´Â Á¦¿ÜÇÏ°í ¿ù ±Þ¿© ÇÕ°è·Î ³»¸²Â÷¼ø Á¤·Ä
-SELECT JOB, SUM(SAL) "±Þ¿©ÇÕ°è" FROM EMP WHERE JOB !='SALESMAN' GROUP BY JOB HAVING SUM(SAL)>5000 ORDER BY SUM(SAL) DESC;
+--ì „ì²´ ì›”ê¸‰ì´ 5000ì„ ì´ˆê³¼í•˜ëŠ” JOBì— ëŒ€í•´, JOBê³¼ ì›” ê¸‰ì—¬ í•©ê³„ë¥¼ ì¡°íšŒ, ë‹¨, JOBì´ 'SALES'ëŠ” ì œì™¸í•˜ê³  ì›” ê¸‰ì—¬ í•©ê³„ë¡œ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
+SELECT JOB, SUM(SAL) "ê¸‰ì—¬í•©ê³„" FROM EMP WHERE JOB !='SALESMAN' GROUP BY JOB HAVING SUM(SAL)>5000 ORDER BY SUM(SAL) DESC;
 
 /*
-12. ¼­ºêÄõ¸® : Äõ¸® ¾È¿¡ Äõ¸®¹®À» ÀÛ¼ºÇÏ´Â ÇüÅÂ
-    SELECT * FROM [Å×ÀÌºí¸í];
-    SELECT * FROM (¼­ºêÄõ¸®¹®);
-    SELECT * FROM (¼­ºêÄõ¸®¹® (¼­ºêÄõ¸®))
+12. ì„œë¸Œì¿¼ë¦¬ : ì¿¼ë¦¬ ì•ˆì— ì¿¼ë¦¬ë¬¸ì„ ìž‘ì„±í•˜ëŠ” í˜•íƒœ
+    SELECT * FROM [í…Œì´ë¸”ëª…];
+    SELECT * FROM (ì„œë¸Œì¿¼ë¦¬ë¬¸);
+    SELECT * FROM (ì„œë¸Œì¿¼ë¦¬ë¬¸ (ì„œë¸Œì¿¼ë¦¬))
 */
 
 SELECT * FROM (SELECT EMPNO, ENAME, SAL FROM EMP);
 SELECT EMPNO, SAL FROM (SELECT EMPNO, ENAME, SAL FROM EMP);
 SELECT * FROM EMP;
 
---»ç¿ø¹øÈ£ 7900ÀÎ Á÷¿øÀÇ Á÷¹«¿Í °°Àº Á÷¹«¸¦ °¡Áø »ç¶÷ÀÇ ÀÏ¸§°ú Á÷¹« Ãâ·Â
+--ì‚¬ì›ë²ˆí˜¸ 7900ì¸ ì§ì›ì˜ ì§ë¬´ì™€ ê°™ì€ ì§ë¬´ë¥¼ ê°€ì§„ ì‚¬ëžŒì˜ ì¼ë¦„ê³¼ ì§ë¬´ ì¶œë ¥
 SELECT ENAME,JOB FROM EMP WHERE JOB = (SELECT JOB FROM EMP WHERE EMPNO=7900);
 
 /*
 13. JOIN 
-    : µÑ ÀÌ»óÀÇ Å×ÀÌºíÀ» ¿¬°áÇÏ¿© µ¥ÀÌÅÐ¸£ °Ë»öÇÏ´Â ¹æ¹ý
-    µÎ Å×ÀÌºí¿¡ Àû¾îµµ ÇÑ°³ÀÇ ÄÃ·³Àº ¼­·Î °øÀ¯ÇÏ´Â ÇüÅÂ¿©¾ß ÇÑ´Ù.
-    ·¹ÄÚµå ÀûÀº °ÍÀ» ¾Õ¿¡¾²´Â °ÍÀÌ ºü¸£´Ù
+    : ë‘˜ ì´ìƒì˜ í…Œì´ë¸”ì„ ì—°ê²°í•˜ì—¬ ë°ì´í„¸ë¥´ ê²€ìƒ‰í•˜ëŠ” ë°©ë²•
+    ë‘ í…Œì´ë¸”ì— ì ì–´ë„ í•œê°œì˜ ì»¬ëŸ¼ì€ ì„œë¡œ ê³µìœ í•˜ëŠ” í˜•íƒœì—¬ì•¼ í•œë‹¤.
+    ë ˆì½”ë“œ ì ì€ ê²ƒì„ ì•žì—ì“°ëŠ” ê²ƒì´ ë¹ ë¥´ë‹¤
     
     TEST A,B,C,D,E
-    Á¤±ÔÈ­ : ÇÏ³ªÀÇ Å×ÀÌºíÀÌ ¿©·¯ °³ÀÇ Å×ÀÌºí·Î ³ª´²Á®¼­ Á¶°¢À¸·Î ºÐ¸®ÇÏ´Â ±â¼ú
-    Á¤±¸È­·Î ¿©·¯ Å×ÀÌºí¿¡Èð¾îÁ® ÀÖ´Â µ¥ÀÌÅÍµéÀ» Á¶ÇÕÇØ¼­ °¡Á®¿À´Â ±â¼úÀÌ Á¶ÀÎ
+    ì •ê·œí™” : í•˜ë‚˜ì˜ í…Œì´ë¸”ì´ ì—¬ëŸ¬ ê°œì˜ í…Œì´ë¸”ë¡œ ë‚˜ëˆ ì ¸ì„œ ì¡°ê°ìœ¼ë¡œ ë¶„ë¦¬í•˜ëŠ” ê¸°ìˆ 
+    ì •êµ¬í™”ë¡œ ì—¬ëŸ¬ í…Œì´ë¸”ì—í©ì–´ì ¸ ìžˆëŠ” ë°ì´í„°ë“¤ì„ ì¡°í•©í•´ì„œ ê°€ì ¸ì˜¤ëŠ” ê¸°ìˆ ì´ ì¡°ì¸
     
     [ORACLE JOIN]
     SELECT A.COL1, B.COL1 FROM TABLE A, TABLE2 B WHERE A.COL2 = B.COL2;
     [ANSI JOIN]
     SELECT A.COL1, B.COL1 FROM TABLE A [INNER] TABLE2 B ON A.COL2=B.COL2;
     
-    1) EQUI JOIN µî°¡Á¶ÀÎ
+    1) EQUI JOIN ë“±ê°€ì¡°ì¸
     
 */
 
@@ -263,41 +263,41 @@ SELECT EMPNO, ENAME, DNAME FROM EMP E, DEPT D WHERE E.DEPTNO = D.DEPTNO;
 --ANSI
 SELECT E.EMPNO ,E.ENAME, D.DNAME FROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO;
 
-SELECT S.NAME ÇÐ»ýÀÌ¸§, P.NAME Áöµµ±³¼ö FROM STUDENT S, PROFESSOR P WHERE S.PROFNO=P.PROFNO;
+SELECT S.NAME í•™ìƒì´ë¦„, P.NAME ì§€ë„êµìˆ˜ FROM STUDENT S, PROFESSOR P WHERE S.PROFNO=P.PROFNO;
 
 SELECT * FROM STUDENT;
 SELECT * FROM PROFESSOR;
 
 /*
 14. SELF JOIN
-    Á¶ÀÎÇÏ°í ½ÍÀº µ¥ÀÌÅÍ°¡  ÇÏ³ªÀÇ Å×ÀÌºí¿¡ ´Ù µé¾î ÀÖ´Â °æ¿ì
+    ì¡°ì¸í•˜ê³  ì‹¶ì€ ë°ì´í„°ê°€  í•˜ë‚˜ì˜ í…Œì´ë¸”ì— ë‹¤ ë“¤ì–´ ìžˆëŠ” ê²½ìš°
 */
--- Á÷¿ø¹øÈ£, Á÷¿øÀÌ¸§°ú ÇØ´ç Á÷¿øÀÇ »ó»çÀÇ ÀÌ¸§ Ãâ·Â
+-- ì§ì›ë²ˆí˜¸, ì§ì›ì´ë¦„ê³¼ í•´ë‹¹ ì§ì›ì˜ ìƒì‚¬ì˜ ì´ë¦„ ì¶œë ¥
 SELECT E1.EMPNO, E1.ENAME, E1.MGR, E2.ENAME FROM EMP E1,EMP E2 WHERE E1.MGR = E2.EMPNO;
 
 /*
-15. ½ÃÄö½º SEQUENCE
-    : À¯ÀÏÇÑ °ªÀ» »ý¼ºÇØ ÁÖ´Â ¿À¶óÅ¬ °´Ã¼
-    ½ÃÄö½º¸¦ »ý¼ºÇÏ¸é PK¿Í °°ÀÌ ¼øÂ÷ÀûÀ¸·Î Áõ°¡ÇÏ´Â Ä®·³À» ÀÚµ¿ÀûÀ¸·Î »ý¼ºÇÒ ¼ö ÀÖ´Ù.
-    NUMBER Å¸ÀÔÀÇ PK °ªÀ» »ý¼ºÇÒ ‹š »ç¿ë.
-    ½ÃÄö½º´Â Å×ÀÌºí°ú´Â µ¶¸³ÀûÀ¸·Î ÀúÀåµÇ°í »ý¼ºµÈ´Ù.
+15. ì‹œí€€ìŠ¤ SEQUENCE
+    : ìœ ì¼í•œ ê°’ì„ ìƒì„±í•´ ì£¼ëŠ” ì˜¤ë¼í´ ê°ì²´
+    ì‹œí€€ìŠ¤ë¥¼ ìƒì„±í•˜ë©´ PKì™€ ê°™ì´ ìˆœì°¨ì ìœ¼ë¡œ ì¦ê°€í•˜ëŠ” ì¹¼ëŸ¼ì„ ìžë™ì ìœ¼ë¡œ ìƒì„±í•  ìˆ˜ ìžˆë‹¤.
+    NUMBER íƒ€ìž…ì˜ PK ê°’ì„ ìƒì„±í•  ë–„ ì‚¬ìš©.
+    ì‹œí€€ìŠ¤ëŠ” í…Œì´ë¸”ê³¼ëŠ” ë…ë¦½ì ìœ¼ë¡œ ì €ìž¥ë˜ê³  ìƒì„±ëœë‹¤.
     
-    1) ½ÃÄö½º »ý¼º
-        CREATE SEQUENCE [½ÃÄö½º¸í] (¿É¼Ç);
-        *¿É¼Ç : »ý·«°¡´É
-        START WITH N : ½ÃÄö½ºÀÇ ½ÃÀÛ°ª ÁöÁ¤
-        INCREMENT BY N : Áõ°¡°ª ÁöÁ¤, DEFAULT 
-        MAXVALUE : ÃÖ´ë°ª
-        MINVALUE : ÃÖ¼Ò°ª
-        CYCLE / NOCYCLE : ÃÖ´ë°ª µµ´Þ½Ã ¼øÈ¯¿©ºÎ
-        CACHE N / NOCACHE : ½ÃÄö½º »ý¼º¼Óµµ¸¦ °³¼±ÇÏ±â À§ÇØ Ä³½Ì¿©ºÎ ÁöÁ¤
+    1) ì‹œí€€ìŠ¤ ìƒì„±
+        CREATE SEQUENCE [ì‹œí€€ìŠ¤ëª…] (ì˜µì…˜);
+        *ì˜µì…˜ : ìƒëžµê°€ëŠ¥
+        START WITH N : ì‹œí€€ìŠ¤ì˜ ì‹œìž‘ê°’ ì§€ì •
+        INCREMENT BY N : ì¦ê°€ê°’ ì§€ì •, DEFAULT 
+        MAXVALUE : ìµœëŒ€ê°’
+        MINVALUE : ìµœì†Œê°’
+        CYCLE / NOCYCLE : ìµœëŒ€ê°’ ë„ë‹¬ì‹œ ìˆœí™˜ì—¬ë¶€
+        CACHE N / NOCACHE : ì‹œí€€ìŠ¤ ìƒì„±ì†ë„ë¥¼ ê°œì„ í•˜ê¸° ìœ„í•´ ìºì‹±ì—¬ë¶€ ì§€ì •
         
-        ½ÃÄö½º ¸í : Å×ÀÌºí¸í_SEQ, SEQ_Å×ÀÌºí¸í
+        ì‹œí€€ìŠ¤ ëª… : í…Œì´ë¸”ëª…_SEQ, SEQ_í…Œì´ë¸”ëª…
         
-    2) ½ÃÄö½º »ç¿ë
-        ½ÃÄö½º ¸í.CURRVAL : ÇöÀç±îÁö »ý¼ºµÈ ¹øÈ£.
-        ½ÃÄö½º ¸í.NEXTVAL : ´ÙÀ½¹øÈ£
-    3) ½ÃÄö½º »èÁ¦
+    2) ì‹œí€€ìŠ¤ ì‚¬ìš©
+        ì‹œí€€ìŠ¤ ëª….CURRVAL : í˜„ìž¬ê¹Œì§€ ìƒì„±ëœ ë²ˆí˜¸.
+        ì‹œí€€ìŠ¤ ëª….NEXTVAL : ë‹¤ìŒë²ˆí˜¸
+    3) ì‹œí€€ìŠ¤ ì‚­ì œ
         DROP SEQUENCE TEST_SEQ;
 */
 CREATE SEQUENCE TEST_SEQ NOCACHE;
@@ -309,14 +309,14 @@ SELECT * FROM TEST;
 INSERT INTO TEST VALUES('PIKACHU','1111', TEST_SEQ.NEXTVAL, SYSDATE);
 
 
--- ¹®Á¦1. student(ÇÐ»ý), department(ÇÐ°ú), professor(±³¼ö) Å×ÀÌºí join ÇÏ¿© 
---      ÇÐ»ýÀÌ¸§, ÇÐ»ýÀÇÇÐ°úÀÌ¸§(dname), Áöµµ±³¼öÀÌ¸§ Ãâ·Â  
---       ´Ü, ÇÐ»ýÀÇ ÇÐ°ú´Â DEPTNO1À» ±âÁØÀ¸·Î Ã£±â 
--- ¹®Á¦2. student Å×ÀÌºíÀ» Á¶È¸ÇÏ¿© 1Àü°øÀÌ 101¹øÀÎ ÇÐ»ýµéÀÇ ÀÌ¸§°ú 
---      °¢ ÇÐ»ýµéÀÇ Áöµµ±³¼öÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä.
+-- ë¬¸ì œ1. student(í•™ìƒ), department(í•™ê³¼), professor(êµìˆ˜) í…Œì´ë¸” join í•˜ì—¬ 
+--      í•™ìƒì´ë¦„, í•™ìƒì˜í•™ê³¼ì´ë¦„(dname), ì§€ë„êµìˆ˜ì´ë¦„ ì¶œë ¥  
+--       ë‹¨, í•™ìƒì˜ í•™ê³¼ëŠ” DEPTNO1ì„ ê¸°ì¤€ìœ¼ë¡œ ì°¾ê¸° 
+-- ë¬¸ì œ2. student í…Œì´ë¸”ì„ ì¡°íšŒí•˜ì—¬ 1ì „ê³µì´ 101ë²ˆì¸ í•™ìƒë“¤ì˜ ì´ë¦„ê³¼ 
+--      ê° í•™ìƒë“¤ì˜ ì§€ë„êµìˆ˜ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”.
 
 --1
-SELECT S.NAME ÇÐ»ýÀÌ¸§ ,D.DNAME ÇÐ°úÀÌ¸§, P.NAME Áöµµ±³¼ö FROM STUDENT S, DEPARTMENT D, PROFESSOR P WHERE S.DEPTNO1 = D.DEPTNO AND S.PROFNO=P.PROFNO;
+SELECT S.NAME í•™ìƒì´ë¦„ ,D.DNAME í•™ê³¼ì´ë¦„, P.NAME ì§€ë„êµìˆ˜ FROM STUDENT S, DEPARTMENT D, PROFESSOR P WHERE S.DEPTNO1 = D.DEPTNO AND S.PROFNO=P.PROFNO;
 --2
-SELECT DISTINCT S.NAME ÇÐ»ýÀÌ¸§, P.NAME Áöµµ±³¼ö FROM STUDENT S, PROFESSOR P, DEPARTMENT D WHERE S.PROFNO=P.PROFNO AND S.DEPTNO1=101;
+SELECT DISTINCT S.NAME í•™ìƒì´ë¦„, P.NAME ì§€ë„êµìˆ˜ FROM STUDENT S, PROFESSOR P, DEPARTMENT D WHERE S.PROFNO=P.PROFNO AND S.DEPTNO1=101;
 SELECT * FROM STUDENT;
